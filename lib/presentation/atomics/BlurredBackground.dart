@@ -17,7 +17,7 @@ class BlurredBackground extends StatelessWidget {
   const BlurredBackground({
     super.key,
     required this.imagePath,
-    this.blurSigma = 5.0,
+    this.blurSigma = 1.0,
     required this.child,
   });
 
