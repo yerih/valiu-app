@@ -105,42 +105,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                      return Card(
-                        clipBehavior: Clip.antiAlias,
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: AssetImage(CardHome.getImagePath(index)),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Title'),
-                                Text('Subtitle'),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Text(
-                                    'year',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey[500],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
+                      return CardHome(
+                        title: 'Title $index',
+                        subtitle: 'Subtitle $index',
+                        year: '2023',
+                        index: index,
+                        onTap: () => Scaffold.of(context).openDrawer(),
                       );
                     },
                     childCount: 10
