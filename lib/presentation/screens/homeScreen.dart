@@ -47,78 +47,80 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer,
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          SliverAppBar(
-            leading: _isShownBurgerBtn ? IconButton(onPressed: () => {}, icon: const Icon(Icons.menu, color: Colors.white)):Container(),
-            pinned: true,
-            expandedHeight: 400,
-            backgroundColor: Colors.black,
-            flexibleSpace: Stack(
-              children: [
-                FlexibleSpaceBar(
-                  title: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Featured', style: textDrawerItem),
-                      Container(
-                        margin: const EdgeInsets.only(top: 4.0),
-                        height: 3.0,
-                        width: 60, // Adjust width as needed
-                        decoration: BoxDecoration(
-                          color: Colors.white, // Or your preferred color
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
+      body: Builder(
+        builder: (context) => CustomScrollView(
+          controller: _scrollController,
+          slivers: [
+            SliverAppBar(
+              leading: _isShownBurgerBtn ? IconButton(onPressed: () => Scaffold.of(context).openDrawer(), icon: const Icon(Icons.menu, color: Colors.white)):Container(),
+              pinned: true,
+              expandedHeight: 400,
+              backgroundColor: Colors.black,
+              flexibleSpace: Stack(
+                children: [
+                  FlexibleSpaceBar(
+                    title: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Featured', style: textDrawerItem),
+                        Container(
+                          margin: const EdgeInsets.only(top: 4.0),
+                          height: 3.0,
+                          width: 60, // Adjust width as needed
+                          decoration: BoxDecoration(
+                            color: Colors.white, // Or your preferred color
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
                           ),
                         ),
+                      ],
+                    ),
+                    centerTitle: false,
+                    titlePadding: const EdgeInsets.only(left: 20),
+                    collapseMode: CollapseMode.parallax,
+                    background: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(20),
                       ),
-                    ],
-                  ),
-                  centerTitle: false,
-                  titlePadding: const EdgeInsets.only(left: 20),
-                  collapseMode: CollapseMode.parallax,
-                  background: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(20),
-                    ),
-                    child: Image(
-                      image: AssetImage('assets/images/img.png'),
-                      fit: BoxFit.cover,
+                      child: Image(
+                        image: AssetImage('assets/images/img.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
 
-          SliverPadding(
-              padding: const EdgeInsets.all(10),
-              sliver: SliverGrid(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            SliverPadding(
+                padding: const EdgeInsets.all(10),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
                     childAspectRatio: 0.9,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return CardHome(
-                        title: 'Title $index',
-                        subtitle: 'Subtitle $index',
-                        year: '2023',
-                        index: index,
-                        onTap: () => Scaffold.of(context).openDrawer(),
-                      );
-                    },
-                    childCount: 10
-                ),
-              )
-          )
-        ],
-      ),
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                        return CardHome(
+                          title: 'Title $index',
+                          subtitle: 'Subtitle $index',
+                          year: '2023',
+                          index: index,
+                          onTap: () => {},
+                        );
+                      },
+                      childCount: 10
+                  ),
+                )
+            )
+          ],
+        ),
+      )
     );
   }
 }

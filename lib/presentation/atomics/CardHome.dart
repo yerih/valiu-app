@@ -43,26 +43,18 @@ class CardHome extends StatefulWidget{
 class _CardHomeState extends State<CardHome> with SingleTickerProviderStateMixin {
   double _scale = 1.0;
 
-  void _onTapDown(TapDownDetails details) {
-    setState(() {
-      _scale = 0.85;
-    });
-  }
+  void _onTapDown(TapDownDetails details) {setState(() {_scale = 0.85;});}
 
   void _onTapUp(TapUpDetails details) {
       Future.delayed(Duration(milliseconds: 100), (){
         setState(() {
-          Future.delayed(Duration(milliseconds: 50), (){widget.onTap?.call();});
+          // Future.delayed(Duration(milliseconds: 50), (){widget.onTap?.call();});
           _scale = 1.0;
         });
       });
   }
 
-  void _onTapCancel() {
-    setState(() {
-      _scale = 1.0;
-    });
-  }
+  void _onTapCancel() {setState(() {_scale = 1.0;});}
 
   @override
   Widget build(BuildContext context) {
@@ -70,14 +62,11 @@ class _CardHomeState extends State<CardHome> with SingleTickerProviderStateMixin
       onTapDown: _onTapDown,
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
-      onTap: () {
-        // Perform your onTap action here
-        print("Card tapped!");
-      },
+      onTap: () => {},//widget.onTap?.call(),
       child: AnimatedScale(
         scale: _scale,
-        duration: Duration(milliseconds: 250),
-        curve: Curves.easeInOut,
+        duration: Duration(seconds: 2),
+        curve: Curves.bounceInOut,
         child: Card(
                 clipBehavior: Clip.antiAlias,
                 elevation: 2,
