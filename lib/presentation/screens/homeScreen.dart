@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:valiu_app/presentation/atomics/BlurredBackground.dart';
 import 'package:valiu_app/presentation/styles/StyleText.dart';
 
+import '../atomics/CardHome.dart';
 import '../organims/CustomDrawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,11 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() => _isShownBurgerBtn = shouldShow);
       }
     });
-    // if (_scrollController.position.userScrollDirection == ScrollDirection.forward) {
-    //   if (!_isShownBurgerBtn) setState(() => _isShownBurgerBtn = true);
-    // } else if (_scrollController.position.userScrollDirection == ScrollDirection.reverse) {
-    //   if (_isShownBurgerBtn) setState(() => _isShownBurgerBtn = false);
-    // }
   }
 
   @override
@@ -55,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: _scrollController,
         slivers: [
           SliverAppBar(
-            leading: _isShownBurgerBtn ? IconButton(onPressed: () {}, icon: const Icon(Icons.menu, color: Colors.white)):Container(),
+            leading: _isShownBurgerBtn ? IconButton(onPressed: () => {}, icon: const Icon(Icons.menu, color: Colors.white)):Container(),
             pinned: true,
             expandedHeight: 400,
             backgroundColor: Colors.black,
@@ -81,7 +77,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  // title: Text('Featured', style: textDrawerItem),
                   centerTitle: false,
                   titlePadding: const EdgeInsets.only(left: 20),
                   collapseMode: CollapseMode.parallax,
@@ -98,14 +93,60 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              return ListTile(
-                title: Text('Item $index'),
-                onTap: () => {Scaffold.of(context).openDrawer()},
-              );
-            }, childCount: 100),
-          ),
+
+          SliverPadding(
+              padding: const EdgeInsets.all(10),
+              sliver: SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 0.9,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return Card(
+                        clipBehavior: Clip.antiAlias,
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(CardHome.getImagePath(index)),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Title'),
+                                Text('Subtitle'),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    'year',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.grey[500],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      );
+                    },
+                    childCount: 10
+                ),
+              )
+          )
         ],
       ),
     );
