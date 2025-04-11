@@ -8,7 +8,7 @@ var drawer = Drawer(
     decoration: BoxDecoration(
       color: Colors.black,
       image: DecorationImage(
-        image: AssetImage('assets/images/drawer_bg.png'),
+        image: AssetImage('assets/images/drawer_bg.jpg'),
         fit: BoxFit.cover,
       ),
       border: null

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/organims/CustomDrawer.dart';
 import 'package:valiu_app/presentation/organims/SideMenu.dart';
-import 'package:valiu_app/presentation/screens/homeScreen.dart';
+import 'package:valiu_app/presentation/screens/HomeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SideMenu(),
-      // home: const HomeScreen(),
+      // home: const SideMenu(),
+      home: const HomeScreen(),
     );
   }
 }

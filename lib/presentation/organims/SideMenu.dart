@@ -16,16 +16,16 @@ class _SideMenuState extends State<SideMenu> {
   Widget build(BuildContext context) {
     const thickness = 0.2;
     return Scaffold(
-      body: SafeArea(
+      body: Expanded(
         child: Container(
           width: 288,
           height: double.infinity,
           decoration: BoxDecoration(
             color: Colors.black,
-            image: DecorationImage(
-              image: AssetImage('assets/images/drawer_bg.png'),
-              fit: BoxFit.cover,
-            ),
+            // image: DecorationImage(
+            //   image: AssetImage('assets/images/drawer_bg.png'),
+            //   fit: BoxFit.cover,
+            // ),
             border: null,
           ),
           child: SafeArea(
