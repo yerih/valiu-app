@@ -22,10 +22,10 @@ class _SideMenuState extends State<SideMenu> {
           height: double.infinity,
           decoration: BoxDecoration(
             color: Colors.black,
-            // image: DecorationImage(
-            //   image: AssetImage('assets/images/drawer_bg.png'),
-            //   fit: BoxFit.cover,
-            // ),
+            image: DecorationImage(
+              image: AssetImage('assets/images/drawer_bg.jpg'),
+              fit: BoxFit.cover,
+            ),
             border: null,
           ),
           child: SafeArea(

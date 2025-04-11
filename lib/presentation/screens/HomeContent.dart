@@ -66,15 +66,12 @@ class _HomeContentState extends State<HomeContent>{
                     children: [
                       Text('Featured', style: textDrawerItem),
                       Container(
-                        margin: const EdgeInsets.only(top: 4.0),
+                        margin: EdgeInsets.only(top: 4.0),
                         height: 3.0,
                         width: 60, // Adjust width as needed
                         decoration: BoxDecoration(
                           color: Colors.white, // Or your preferred color
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10),
-                          ),
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10),),
                         ),
                       ),
                     ],
@@ -82,7 +79,7 @@ class _HomeContentState extends State<HomeContent>{
                   centerTitle: false,
                   titlePadding: const EdgeInsets.only(left: 20),
                   collapseMode: CollapseMode.parallax,
-                  background: ClipRRect(
+                  background: const ClipRRect(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
                     ),
@@ -108,14 +105,14 @@ class _HomeContentState extends State<HomeContent>{
                 delegate: SliverChildBuilderDelegate(
                         (context, index) {
                       return CardHome(
-                        title: 'Title $index',
-                        subtitle: 'Subtitle $index',
+                        title: 'Title',
+                        subtitle: 'Subtitle',
                         year: '2023',
                         index: index,
                         onTap: () => {},
                       );
                     },
-                    childCount: 10
+                    childCount: 7
                 ),
               )
           )
