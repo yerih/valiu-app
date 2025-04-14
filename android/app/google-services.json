@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "547864465768",
+    "project_id": "conference-app-83936",
+    "storage_bucket": "conference-app-83936.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547864465768:android:dc644edfbdf2bdab52c6dd",
+        "android_client_info": {
+          "package_name": "com.valiu.app.valiu_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCktt7SANIByn0TZczsiXvJjhy-xXlRGx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

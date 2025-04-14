@@ -46,7 +46,7 @@ class _CardHomeState extends State<CardHome> with SingleTickerProviderStateMixin
   void _onTapDown(TapDownDetails details) {setState(() {_scale = 0.85;});}
 
   void _onTapUp(TapUpDetails details) {
-      Future.delayed(Duration(milliseconds: 100), (){
+      Future.delayed(Duration(milliseconds: 200), (){
         setState(() {
           _scale = 1.0;
         });

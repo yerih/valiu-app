@@ -1,9 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:valiu_app/presentation/organims/CustomDrawer.dart';
-import 'package:valiu_app/presentation/organims/SideMenu.dart';
 import 'package:valiu_app/presentation/screens/HomeScreen.dart';
 
-void main() {
+void main() async {
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   runApp(const MyApp());
 }
 
