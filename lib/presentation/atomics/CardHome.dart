@@ -83,22 +83,17 @@ class _CardHomeState extends State<CardHome>
               padding: EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('${widget.title}', style: textDrawerItem),
-                  // Text('${widget.subtitle}', style: textDrawerItem),
-                  // Align(
-                  //   alignment: Alignment.bottomRight,
-                  //   child: Text(
-                  //     '${widget.year}',
-                  //     style: TextStyle(
-                  //       fontSize: 12,
-                  //       color: Colors.white,
-                  //       fontWeight: FontWeight.bold,
-                  //       // color: Colors.grey[500],
-                  //     ),
-                  //   ),
-                  // ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      '${widget.title}',
+                      style: textDrawerItem,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
             ),
