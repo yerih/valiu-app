@@ -6,7 +6,6 @@ import '../styles/StyleText.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem});
-  // HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem, required this.news});
   final VoidCallback? onTapBurgerBtn;
   final void Function(int index)? onTapItem;
 

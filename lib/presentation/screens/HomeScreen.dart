@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/organims/SideMenu.dart';
 import '../../core/NewsModel.dart';
-import '../../data/datasources/firebase_database_service.dart';
-import 'HomeContent.dart';
+import '../organims/HomeContent.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   late Animation<double> animation;
   late Animation<double> scaleAnimation;
   bool isSideMenuClosed = true;
-  final ValueNotifier<List<NewsModel>> _news = ValueNotifier<List<NewsModel>>([]);
 
   @override
   void initState(){
