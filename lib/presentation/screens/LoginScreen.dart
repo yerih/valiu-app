@@ -1,6 +1,8 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:valiu_app/core/Result.dart';
+import 'package:valiu_app/data/datasources/firebase_database_service.dart';
 import 'package:valiu_app/data/repositories/AuthRepository.dart';
 
 
@@ -28,13 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: const Text('Login'),
         onPressed: () async {
+          final list = await FirebaseRealTimeDB.getNews();
           // final result = await authRepo.signUp(email: 'a@a.com', password: 'password1.');
-          final result = await authRepo.signIn(email: 'a@a.com', password: 'password1.');
-          switch(result){
-            case Result(isSuccess: true): debugPrint('signIn success'); break;
-            case Result(isError: true): debugPrint('signIn error: ${result.message}'); break;
-            default: break;
-          }
+          // final result = await authRepo.signIn(email: 'a@a.com', password: 'password1.');
+          // switch(result){
+          //   case Result(isSuccess: true): debugPrint('signIn success'); break;
+          //   case Result(isError: true): debugPrint('signIn error: ${result.message}'); break;
+          //   default: break;
+          // }
         },
       ),
     );
