@@ -31,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: const Text('Login'),
         onPressed: () async {
           final list = await FirebaseRealTimeDB.getNews();
+          debugPrint(list.toString());
           // final result = await authRepo.signUp(email: 'a@a.com', password: 'password1.');
           // final result = await authRepo.signIn(email: 'a@a.com', password: 'password1.');
           // switch(result){

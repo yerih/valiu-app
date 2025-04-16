@@ -77,6 +77,7 @@ class _CardHomeState extends State<CardHome>
           });
         });
       },
+      onTap: widget.onTap,
       onTapCancel: () => setState(() => _scale = 1.0),
       child: AnimatedScale(
         scale: _scale,

@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../data/datasources/firebase_database_service.dart';
 import '../atomics/CardHome.dart';
 import '../styles/StyleText.dart';
 
 class HomeContent extends StatefulWidget {
-  const HomeContent({super.key, this.onTapBurgerBtn});
+  const HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem});
   final VoidCallback? onTapBurgerBtn;
+  final VoidCallback? onTapItem;
   @override
   State<StatefulWidget> createState() => _HomeContentState();
 }
@@ -111,7 +113,12 @@ class _HomeContentState extends State<HomeContent> {
                       subtitle: 'Subtitle',
                       year: '2023',
                       index: index,
-                      onTap: () => {},
+                      onTap: () async {
+
+                        final list = await FirebaseRealTimeDB.getNews();
+                        debugPrint(list.toString());
+                      },
+                      // onTap: () => {},
                     );
                   }, childCount: 7),
                 ),

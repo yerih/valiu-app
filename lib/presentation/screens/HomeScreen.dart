@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/organims/SideMenu.dart';
+import '../../core/NewsModel.dart';
+import '../../data/datasources/firebase_database_service.dart';
 import '../organims/CustomDrawer.dart';
 import 'HomeContent.dart';
 
@@ -16,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   late Animation<double> animation;
   late Animation<double> scaleAnimation;
   bool isSideMenuClosed = true;
+  late final news;
 
   @override
   void initState(){
@@ -32,6 +35,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         CurvedAnimation(parent: _animationController, curve: Curves.fastOutSlowIn)
     );
 
+    loadNews();
+
+  }
+
+  void loadNews() async {
   }
 
 
@@ -63,14 +71,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(24)),
                   child: HomeContent(
-                    onTapBurgerBtn: () => setState(() {
-                      isSideMenuClosed = !isSideMenuClosed;
-                      isSideMenuClosed ? _animationController.reverse() : _animationController.forward();
-                    }),
+                      onTapBurgerBtn: () async {
+                        setState(() {
+                          isSideMenuClosed = !isSideMenuClosed;
+                          isSideMenuClosed ? _animationController.reverse() : _animationController.forward();
+                        });
+                      }
+                    ),
                   ),
                 ),
               )
-          )
+
         ],
       )
     );

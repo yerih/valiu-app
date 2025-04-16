@@ -53,6 +53,11 @@ class NewsModel {
       'comments': comments.map((x) => x.toMap()).toList(),
     };
   }
+
+  @override
+  String toString() {
+    return 'NewsModel{id: $id, title: $title, description: $description, date: $date, image: $image, createdBy: $createdBy, comments: $comments}';
+  }
 }
 
 class Comment {

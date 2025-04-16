@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const SideMenu(),
-      // home: const HomeScreen(),
-      home: const LoginScreen(),
+      home: const HomeScreen(),
+      // home: const LoginScreen(),
     );
   }
 }
