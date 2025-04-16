@@ -16,11 +16,26 @@ class AuthRepository{
   }) async {
     try{
       await authService.signIn(email: email, password: password);
-      debugPrint('firebase success');
+      // debugPrint('firebase success');
       return Result(data: true);
     } on FirebaseAuthException catch(e){
       e.code;
-      debugPrint('firebase exception: ${e.message}');
+      // debugPrint('firebase exception: ${e.message}');
+      return Result(data: null, message: e.message);
+    }
+  }
+
+  Future<Result<bool>> signUp({
+    required String email,
+    required String password
+  }) async {
+    try{
+      await authService.signUp(email: email, password: password);
+      // debugPrint('firebase success');
+      return Result(data: true);
+    } on FirebaseAuthException catch(e){
+      e.code;
+      // debugPrint('firebase exception: ${e.message}');
       return Result(data: null, message: e.message);
     }
   }

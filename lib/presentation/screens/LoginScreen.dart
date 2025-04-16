@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:valiu_app/core/Result.dart';
 import 'package:valiu_app/data/repositories/AuthRepository.dart';
 
-import '../../data/datasources/auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,11 +27,14 @@ class _LoginScreenState extends State<LoginScreen> {
           ), // Corner radius
         ),
         child: const Text('Login'),
-        onPressed: () {
-          authRepo.signIn(email: 'a@a.com', password: 'password1.').then((value) {
-            debugPrint('chekc this: ${value.message}. isSuccess = ${value.isSuccess}');
-            // debugPrint('chekc this: ${value.message}');
-          });
+        onPressed: () async {
+          // final result = await authRepo.signUp(email: 'a@a.com', password: 'password1.');
+          final result = await authRepo.signIn(email: 'a@a.com', password: 'password1.');
+          switch(result){
+            case Result(isSuccess: true): debugPrint('signIn success'); break;
+            case Result(isError: true): debugPrint('signIn error: ${result.message}'); break;
+            default: break;
+          }
         },
       ),
     );
