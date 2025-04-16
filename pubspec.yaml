@@ -71,6 +71,7 @@ flutter:
      - assets/images/card_home2.jpg
      - assets/images/card_home3.jpg
      - assets/images/drawer_bg.jpg
+     - assets/images/stadium_map.png
 #     - images/splash_logo.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
