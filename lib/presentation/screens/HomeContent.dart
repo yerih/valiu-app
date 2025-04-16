@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:valiu_app/core/NewsModel.dart';
 import '../../data/datasources/firebase_database_service.dart';
 import '../atomics/CardHome.dart';
 import '../styles/StyleText.dart';
 
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem});
+  // HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem, required this.news});
   final VoidCallback? onTapBurgerBtn;
-  final VoidCallback? onTapItem;
+  final void Function(int index)? onTapItem;
+
   @override
   State<StatefulWidget> createState() => _HomeContentState();
 }
@@ -17,12 +18,18 @@ class _HomeContentState extends State<HomeContent> {
   final ScrollController _scrollController = ScrollController();
   bool _isShownBurgerBtn = true;
   final double _scrollThreshold = 10;
-  double _scale = 1.0;
+  List<NewsModel> news = List<NewsModel>.empty();
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(_handleScroll);
+    loadNews();
+  }
+
+  void loadNews() async {
+    final list = await FirebaseRealTimeDB.getNews();
+    setState(() {news = list;});
   }
 
   @override
@@ -105,24 +112,26 @@ class _HomeContentState extends State<HomeContent> {
                     crossAxisCount: 2,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
-                    childAspectRatio: 0.9,
+                    mainAxisExtent: 130,
+
                   ),
                   delegate: SliverChildBuilderDelegate((context, index) {
+                    final item = news[index];
                     return CardHome(
-                      title: 'Title',
-                      subtitle: 'Subtitle',
-                      year: '2023',
+                      title: item.title,
+                      subtitle: '',
+                      year: item.date.year.toString(),
                       index: index,
                       onTap: () async {
-
-                        final list = await FirebaseRealTimeDB.getNews();
-                        debugPrint(list.toString());
+                        loadNews();
+                        widget.onTapItem?.call(index);
                       },
-                      // onTap: () => {},
                     );
-                  }, childCount: 7),
+                  }, childCount: news.length),
                 ),
               ),
+
+              SliverToBoxAdapter(child: SizedBox(height: 800)),
             ],
           ),
     );

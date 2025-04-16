@@ -12,7 +12,7 @@ class NewsModel {
   final DateTime date;
   final String image;
   final String createdBy;
-  final List<Comment> comments;
+  final List<CommentModel> comments;
 
   NewsModel({
     required this.id,
@@ -33,7 +33,7 @@ class NewsModel {
       date: DateTime.parse(map['date'].toString()),
       image: map['image']?.toString() ?? '',
       createdBy: map['created_by']?.toString() ?? '',
-      comments: Comment.listFromJson(map['comments'] as List<dynamic>?),
+      comments: CommentModel.listFromJson(map['comments'] as List<dynamic>?),
     );
   }
 
@@ -60,22 +60,22 @@ class NewsModel {
   }
 }
 
-class Comment {
+class CommentModel {
   final String user;
   final String text;
 
-  Comment({required this.user, required this.text});
+  CommentModel({required this.user, required this.text});
 
-  factory Comment.fromMap(Map<dynamic, dynamic> map) {
-    return Comment(
+  factory CommentModel.fromMap(Map<dynamic, dynamic> map) {
+    return CommentModel(
       user: map['user']?.toString() ?? '',
       text: map['text']?.toString() ?? '',
     );
   }
 
   // Factory to create List<Comment> from JSON
-  static List<Comment> listFromJson(List<dynamic>? json) {
-    return json?.map((item) => Comment.fromMap(item as Map<dynamic, dynamic>)).toList() ?? [];
+  static List<CommentModel> listFromJson(List<dynamic>? json) {
+    return json?.map((item) => CommentModel.fromMap(item as Map<dynamic, dynamic>)).toList() ?? [];
   }
 
   Map<String, dynamic> toMap() {

@@ -46,12 +46,6 @@ class _CardHomeState extends State<CardHome>
     with SingleTickerProviderStateMixin {
   double _scale = 1.0;
 
-  void _onTapDown(TapDownDetails details) {
-    setState(() {
-      _scale = 0.85;
-    });
-  }
-
   void _onTapUp(TapUpDetails details) {
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
@@ -60,23 +54,11 @@ class _CardHomeState extends State<CardHome>
     });
   }
 
-  void _onTapCancel() {
-    setState(() {
-      _scale = 1.0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) => setState(() => _scale = 0.85),
-      onTapUp: (_) {
-        Future.delayed(Duration(milliseconds: 100), () {
-          setState(() {
-            _scale = 1.0;
-          });
-        });
-      },
+      onTapUp: _onTapUp,
       onTap: widget.onTap,
       onTapCancel: () => setState(() => _scale = 1.0),
       child: AnimatedScale(
@@ -104,19 +86,19 @@ class _CardHomeState extends State<CardHome>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text('${widget.title}', style: textDrawerItem),
-                  Text('Subtitle', style: textDrawerItem),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text(
-                      'year',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        // color: Colors.grey[500],
-                      ),
-                    ),
-                  ),
+                  // Text('${widget.subtitle}', style: textDrawerItem),
+                  // Align(
+                  //   alignment: Alignment.bottomRight,
+                  //   child: Text(
+                  //     '${widget.year}',
+                  //     style: TextStyle(
+                  //       fontSize: 12,
+                  //       color: Colors.white,
+                  //       fontWeight: FontWeight.bold,
+                  //       // color: Colors.grey[500],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
