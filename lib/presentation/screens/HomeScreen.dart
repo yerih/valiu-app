@@ -71,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   borderRadius: BorderRadius.all(Radius.circular(24)),
                   child: HomeContent(
                       onTapBurgerBtn: _openSideMenu,
-                      onTapItem: (index) async {
-                        debugPrint('index: $index');
+                      onTapItem: (index, item) async {
+                        debugPrint('index: $index, item: $item');
                         // debugPrint(news.toString());
                       },
                     ),

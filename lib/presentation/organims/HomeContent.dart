@@ -7,7 +7,7 @@ import '../styles/StyleText.dart';
 class HomeContent extends StatefulWidget {
   const HomeContent({super.key, this.onTapBurgerBtn, this.onTapItem});
   final VoidCallback? onTapBurgerBtn;
-  final void Function(int index)? onTapItem;
+  final void Function(int index, NewsModel news)? onTapItem;
 
   @override
   State<StatefulWidget> createState() => _HomeContentState();
@@ -122,8 +122,7 @@ class _HomeContentState extends State<HomeContent> {
                       year: item.date.year.toString(),
                       index: index,
                       onTap: () async {
-                        loadNews();
-                        widget.onTapItem?.call(index);
+                        widget.onTapItem?.call(index, item);
                       },
                     );
                   }, childCount: news.length),

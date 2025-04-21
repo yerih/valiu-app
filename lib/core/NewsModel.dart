@@ -1,9 +1,6 @@
 
 
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 
 class NewsModel {
   final String id;
@@ -11,6 +8,7 @@ class NewsModel {
   final String description;
   final DateTime date;
   final String image;
+  final String link;
   final String createdBy;
   final List<CommentModel> comments;
 
@@ -20,6 +18,7 @@ class NewsModel {
     required this.description,
     required this.date,
     required this.image,
+    required this.link,
     required this.createdBy,
     required this.comments,
   });
@@ -32,6 +31,7 @@ class NewsModel {
       description: map['description']?.toString() ?? '',
       date: DateTime.parse(map['date'].toString()),
       image: map['image']?.toString() ?? '',
+      link: map['link']?.toString() ?? '',
       createdBy: map['created_by']?.toString() ?? '',
       comments: CommentModel.listFromJson(map['comments'] as List<dynamic>?),
     );
@@ -49,6 +49,7 @@ class NewsModel {
       'description': description,
       'date': date.toIso8601String(),
       'image': image,
+      'link': link,
       'created_by': createdBy,
       'comments': comments.map((x) => x.toMap()).toList(),
     };
@@ -56,7 +57,7 @@ class NewsModel {
 
   @override
   String toString() {
-    return 'NewsModel{id: $id, title: $title, description: $description, date: $date, image: $image, createdBy: $createdBy, comments: $comments}';
+    return 'NewsModel{id: $id, title: $title, description: $description, date: $date, image: $image, link: $link, createdBy: $createdBy, comments: $comments}';
   }
 }
 

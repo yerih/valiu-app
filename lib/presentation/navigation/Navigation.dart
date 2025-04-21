@@ -4,6 +4,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:valiu_app/presentation/screens/NewsDetailScreen.dart';
 import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/styles/StyleText.dart';
 
@@ -43,8 +44,7 @@ class NavigationGraph {
       case AppRoutes.scripture: return MaterialPageRoute(builder: (_) => const ScriptureScreen());
       case AppRoutes.updates: return MaterialPageRoute(builder: (_) => const UpdatesScreen());
 
-      case AppRoutes.details:
-        // return MaterialPageRoute(builder: (_) => const DetailsScreen());
+      case AppRoutes.details: return MaterialPageRoute(builder: (_) => const NewsDetailScreen());
       case AppRoutes.settings:
         // return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case AppRoutes.profile:
