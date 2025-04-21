@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:valiu_app/core/Result.dart';
@@ -30,8 +31,31 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: const Text('Login'),
         onPressed: () async {
-          final list = await FirebaseRealTimeDB.getNews();
-          debugPrint(list.toString());
+
+          FirebaseMessaging messaging = FirebaseMessaging.instance;
+          NotificationSettings settings = await messaging.requestPermission(
+            alert: true,
+            announcement: false,
+            badge: true,
+            carPlay: false,
+            criticalAlert: false,
+            provisional: false,
+            sound: true,
+          );
+          debugPrint('User granted permission: ${settings.authorizationStatus}');
+          final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+          debugPrint(apnsToken != null ? 'cloudMssaging token: $apnsToken':'cloudMssaging token: null');
+
+          FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+            debugPrint('Got a message whilst in the foreground!');
+            debugPrint('Message data: ${message.data}');
+
+            if (message.notification != null) {
+              debugPrint('Message also contained a notification: ${message.notification}');
+            }
+          });
+          // final list = await FirebaseRealTimeDB.getNews();
+          // debugPrint(list.toString());
           // final result = await authRepo.signUp(email: 'a@a.com', password: 'password1.');
           // final result = await authRepo.signIn(email: 'a@a.com', password: 'password1.');
           // switch(result){
