@@ -1,34 +1,60 @@
 {
-    "news": [
-      {
-        "id": "1",
-        "title": "Título de la noticia o evento",
-        "description": "Descripción del evento",
-        "date": "2025-03-22T12:00:00Z",
-        "image": "URL de la imagen",
-        "link": "https://passionconferences.com/conference/",
-        "created_by": "user_id",
-        "comments": [
-          {
-            "user": "usuario1",
-            "text": "Comentario del usuario"
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "title": "Título de la noticia o evento",
-        "description": "Descripción del evento",
-        "date": "2025-03-22T12:00:00Z",
-        "image": "URL de la imagen",
-        "link": "https://passionconferences.com/holy-land/",
-        "created_by": "user_id",
-        "comments": [
-          {
-            "user": "usuario1",
-            "text": "Comentario del usuario"
-          }
-        ]
+  "preachers":  [
+    {
+      "name": "Ben Stuart",
+      "image":  "https://m.media-amazon.com/images/S/amzn-author-media-prod/hrgorg3t8g0vrpnrg47lk8cntc.jpg",
+      "bio": "is the pastor of Passion City Church, Washington D.C. and author of single, Dating.",
+      "social_networks": {
+          "fb": "https://www.facebook.com/benstuartbooks",
+          "x": "https://twitter.com/benstuartbooks",
+          "ig": "https://www.instagram.com/benstuartbooks/",
+          "yt": null,
+          "web": "https://passioncitychurch.com/leadership/"
       }
-    ]
+    },
+    {
+      "name": "Cody Carnes",
+      "image":  "https://images.sk-static.com/images/media/profile_images/artists/9143289/huge_avatar",
+      "bio": "For as long as Cody and Kari can remeber, they've both loved Jesus, has a heart for worship, and been passionate about entering into God's presence.",
+      "social_networks": {
+          "fb": "https://www.facebook.com/codycarnes",
+          "x": "https://x.com/codycarnes",
+          "ig": "https://www.instagram.com/codycarnes/",
+          "yt": "https://www.youtube.com/channel/UCJn8dUXIe0KTEaTpZzegazQ",
+          "web": "https://www.codycarnes.com/"
+      }
+    }
+  ],
+  "news": [
+    {
+      "comments": [
+        {
+          "text": "Comentario del usuario",
+          "user": "usuario1"
+        }
+      ],
+      "created_by": "user_id",
+      "date": "2025-02-17T10:00:00Z",
+      "description": "Join the gathering of a generation united for Jesus at Passion 2026 in Arlington, TX on January 1-3, 2026. At Passion 2026 18-25 year olds from across the country and around the world are coming together, lifting one voice, declaring one name—JESUS. And the invitation is open: meet us here.",
+      "id": "1",
+      "image": "URL de la imagen",
+      "link": "https://passionconferences.com/conference/",
+      "title": "Coming soon!"
+    },
+    {
+      "comments": [
+        {
+          "text": "Comentario del usuario",
+          "user": "usuario1"
+        }
+      ],
+      "created_by": "user_id",
+      "date": "2025-03-22T12:00:00Z",
+      "description": "Join the gathering of a generation united for Jesus at Passion 2026 in Arlington, TX on January 1-3, 2026. At Passion 2026 18-25 year olds from across the country and around the world are coming together, lifting one voice, declaring one name—JESUS. And the invitation is open: meet us here.",
+      "id": "2",
+      "image": "URL de la imagen",
+      "link": "https://passionconferences.com/holy-land/",
+      "title": "Título de la noticia o evento"
+    }
+  ]
 }
