@@ -9,10 +9,12 @@ import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/styles/StyleText.dart';
 
 import '../../core/NewsModel.dart';
+import '../../core/PreacherModel.dart';
 import '../screens/EventScreen.dart';
 import '../screens/HomeScreen.dart';
 import '../screens/LeadingScreen.dart';
 import '../screens/MapScreen.dart';
+import '../screens/PreacherScreen.dart';
 import '../screens/ResourcesScreen.dart';
 import '../screens/ScriptureScreen.dart';
 import '../screens/UpdateScreen.dart';
@@ -27,6 +29,7 @@ class AppRoutes {
   static const String scripture = '/scripture';
   static const String updates = '/updates';
   static const String details = '/details';
+  static const String preacher = '/preacher';
   static const String settings = '/settings';
   static const String profile = '/profile';
 }
@@ -48,6 +51,9 @@ class NavigationGraph {
       case AppRoutes.details:
         final news = settings.arguments as NewsModel;
         return MaterialPageRoute(builder: (_) => NewsDetailScreen(news: news));
+      case AppRoutes.preacher:
+        final preacher = settings.arguments as PreacherModel;
+        return MaterialPageRoute(builder: (_) => PreacherScreen(preacher: preacher));
       case AppRoutes.settings:
         // return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case AppRoutes.profile:

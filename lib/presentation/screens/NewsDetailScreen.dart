@@ -51,9 +51,7 @@ class _LeadingScreenState extends State<NewsDetailScreen> {
                   InkWell(
                     onTap: () async {
                       final url = Uri.parse(news.link);
-                      await canLaunchUrl(url) ? await launchUrl(url)
-                      // await canLaunchUrl(url) ? await launchUrl(url, mode: LaunchMode.externalApplication)
-                          : throw 'Could not launch $url';
+                      await canLaunchUrl(url) ? await launchUrl(url) : throw 'Could not launch $url';
                     },
                     child: Text('Register now for Passion 2026', style: StyleText.link(),),
                   )

@@ -4,6 +4,7 @@ import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 
 import '../../core/Result.dart';
 import '../../data/repositories/PreachersRepository.dart';
+import '../navigation/Navigation.dart';
 
 class LeadingScreen extends StatefulWidget {
   const LeadingScreen({super.key});
@@ -53,20 +54,19 @@ class _LeadingScreenState extends State<LeadingScreen> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5)),
-                  color: Color.fromARGB(65500, 216, 216, 216),
+                  color: Color.fromARGB(50, 316, 316, 316),
                 ),
-                // color: Colors.grey[300],
                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
-                child: Text(currentLetter, style: TextStyle(fontSize: 12),),
+                child: Text(currentLetter, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
               ),
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5)),
-                ),
+                decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5))),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
                 child: ListTile(
-                  onTap: (){},
+                  onTap: () async {
+                    Navigator.pushNamed(context, AppRoutes.preacher, arguments: list[index]);
+                  },
                   title: Text(preacher.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
                   leading: CircleAvatar(backgroundImage: NetworkImage(preacher.image),),
                 ),
@@ -75,21 +75,6 @@ class _LeadingScreenState extends State<LeadingScreen> {
           );
         },
       )
-
-
-      // body: Center(
-      //   child: InkWell(
-      //     onTap: _getPreachers,
-      //     child: Text(
-      //       'get Preachers',
-      //       style: TextStyle(
-      //         fontSize: 24,
-      //         fontWeight: FontWeight.bold,
-      //         color: Colors.black,
-      //       ),
-      //     ),
-      //   )
-      // ),
     );
   }
 }
