@@ -62,7 +62,7 @@ class NavigationGraph {
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(
-              child: Text('No route defined for ${settings.name}', style: StyleText.textDrawerItem()),
+              child: Text('No route defined for ${settings.name}', style: StyleText.drawerItem()),
             ),
           ),
         );

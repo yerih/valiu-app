@@ -72,7 +72,7 @@ class _HomeContentState extends State<HomeContent> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Featured', style: StyleText.textDrawerItem()),
+                          Text('Featured', style: StyleText.drawerItem()),
                           Container(
                             margin: EdgeInsets.only(top: 4.0),
                             height: 3.0,

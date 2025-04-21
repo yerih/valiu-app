@@ -89,7 +89,7 @@ class _CardHomeState extends State<CardHome>
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       '${widget.title}',
-                      style: StyleText.textDrawerItem(),
+                      style: StyleText.drawerItem(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

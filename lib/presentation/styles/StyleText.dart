@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class StyleText {
-  static TextStyle textDrawerItem() => TextStyle(
+  static TextStyle drawerItem() => TextStyle(
     color: Colors.white,
     fontSize: 20,
     fontWeight: FontWeight.bold,
@@ -26,6 +26,13 @@ class StyleText {
     fontSize: 12,
     color: Colors.blue,
     decoration: TextDecoration.underline,
+  );
+
+  static TextStyle textDetail() => TextStyle(
+    fontSize: 12,
+    color: Colors.black,
+    fontWeight: FontWeight.normal,
+    height: 1.8,
   );
 
 
