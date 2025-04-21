@@ -13,6 +13,30 @@
       }
     },
     {
+      "name": "Jackie Hill Perry",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Jackie_Hill_Perry_2019.jpg/320px-Jackie_Hill_Perry_2019.jpg",
+      "bio": "Jackie Hill Perry is an American writer, poet, Bible teacher, and artist. She is known for her work in Christian hip-hop and her advocacy for biblical womanhood. Perry is also a wife and a mother.",
+      "social_networks": {
+        "fb": "https://www.facebook.com/JackieHillPerry/",
+        "x": "https://twitter.com/JackieHillPerry",
+        "ig": "https://www.instagram.com/jackiehillperry/",
+        "yt": "https://www.youtube.com/c/JackieHillPerry",
+        "web": "https://www.jackiehillperry.com/"
+      }
+    },
+    {
+      "name": "Brooke Ligterwood",
+      "image":  "https://www.bettertogether.tv/sites/default/files/2022-12/BrookeLigertwood3.jpg",
+      "bio": "is a New Zealand-born singer, songwriter, and worship leader, known for her work with Hillsong Worship. She also has a successful mainstream career under her maiden name, Brooke Fraser. She is a Grammy-award winning songwriter and is part of the global church through her leadership and creativity. ",
+      "social_networks": {
+        "fb": "https://www.facebook.com/benstuartbooks",
+        "x": "https://twitter.com/benstuartbooks",
+        "ig": "https://www.instagram.com/benstuartbooks/",
+        "yt": null,
+        "web": "https://passioncitychurch.com/leadership/"
+      }
+    },
+    {
       "name": "Cody Carnes",
       "image":  "https://images.sk-static.com/images/media/profile_images/artists/9143289/huge_avatar",
       "bio": "For as long as Cody and Kari can remeber, they've both loved Jesus, has a heart for worship, and been passionate about entering into God's presence.",
