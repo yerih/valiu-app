@@ -90,13 +90,11 @@ class _HomeContentState extends State<HomeContent> {
                       centerTitle: false,
                       titlePadding: const EdgeInsets.only(left: 20),
                       collapseMode: CollapseMode.parallax,
-                      background: const ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(20),
-                        ),
-                        child: Image(
-                          image: AssetImage('assets/images/home_bg.jpg'),
-                          fit: BoxFit.cover,
+                      background: Container(
+                        color: Colors.white,
+                        child: const ClipRRect(
+                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),),
+                          child: Image(image: AssetImage('assets/images/home_bg.jpg'), fit: BoxFit.cover,),
                         ),
                       ),
                     ),

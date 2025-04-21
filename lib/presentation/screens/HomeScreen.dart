@@ -75,7 +75,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       onTapItem: (index, item) async {
                         debugPrint('index: $index, item: $item');
                         Navigator.pushNamed(context, AppRoutes.details, arguments: item);
-                        // debugPrint(news.toString());
                       },
                     ),
                   ),
