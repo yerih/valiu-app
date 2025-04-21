@@ -72,7 +72,7 @@ class _HomeContentState extends State<HomeContent> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Featured', style: textDrawerItem),
+                          Text('Featured', style: StyleText.textDrawerItem()),
                           Container(
                             margin: EdgeInsets.only(top: 4.0),
                             height: 3.0,
@@ -122,6 +122,7 @@ class _HomeContentState extends State<HomeContent> {
                       year: item.date.year.toString(),
                       index: index,
                       onTap: () async {
+                        loadNews();
                         widget.onTapItem?.call(index, item);
                       },
                     );

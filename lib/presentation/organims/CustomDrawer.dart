@@ -48,7 +48,7 @@ var drawer = Drawer(
 
         ListTile(
           leading: Icon(Icons.home_outlined, color: Colors.white,),
-          title: Text('Home', style: textDrawerItem),
+          title: Text('Home', style: StyleText.textDrawerItem()),
           onTap: () => {
             // Navigator.pop(context);
           },
@@ -56,7 +56,7 @@ var drawer = Drawer(
 
         ListTile(
           leading: Icon(Icons.settings_outlined, color: Colors.white),
-          title: Text('Settings', style: textDrawerItem),
+          title: Text('Settings', style: StyleText.textDrawerItem()),
           onTap: () => {
             // Navigator.pop(context);
           },

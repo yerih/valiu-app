@@ -8,6 +8,7 @@ import 'package:valiu_app/presentation/screens/NewsDetailScreen.dart';
 import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/styles/StyleText.dart';
 
+import '../../core/NewsModel.dart';
 import '../screens/EventScreen.dart';
 import '../screens/HomeScreen.dart';
 import '../screens/LeadingScreen.dart';
@@ -44,7 +45,9 @@ class NavigationGraph {
       case AppRoutes.scripture: return MaterialPageRoute(builder: (_) => const ScriptureScreen());
       case AppRoutes.updates: return MaterialPageRoute(builder: (_) => const UpdatesScreen());
 
-      case AppRoutes.details: return MaterialPageRoute(builder: (_) => const NewsDetailScreen());
+      case AppRoutes.details:
+        final news = settings.arguments as NewsModel;
+        return MaterialPageRoute(builder: (_) => NewsDetailScreen(news: news));
       case AppRoutes.settings:
         // return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case AppRoutes.profile:
@@ -53,7 +56,7 @@ class NavigationGraph {
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(
-              child: Text('No route defined for ${settings.name}', style: textDrawerItem,),
+              child: Text('No route defined for ${settings.name}', style: StyleText.textDrawerItem()),
             ),
           ),
         );
