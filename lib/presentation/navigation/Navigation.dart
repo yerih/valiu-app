@@ -17,7 +17,7 @@ import '../screens/MapScreen.dart';
 import '../screens/PreacherScreen.dart';
 import '../screens/ResourcesScreen.dart';
 import '../screens/ScriptureScreen.dart';
-import '../screens/UpdateScreen.dart';
+import '../screens/UpdatesSocialScreen.dart';
 
 class AppRoutes {
   static const String home = '/';
@@ -46,7 +46,7 @@ class NavigationGraph {
       case AppRoutes.eventInfo: return MaterialPageRoute(builder: (_) => const EventScreen());
       case AppRoutes.resources: return MaterialPageRoute(builder: (_) => const ResourcesScreen());
       case AppRoutes.scripture: return MaterialPageRoute(builder: (_) => const ScriptureScreen());
-      case AppRoutes.updates: return MaterialPageRoute(builder: (_) => const UpdatesScreen());
+      case AppRoutes.updates: return MaterialPageRoute(builder: (_) => const UpdatesSocialScreen());
 
       case AppRoutes.details:
         final news = settings.arguments as NewsModel;

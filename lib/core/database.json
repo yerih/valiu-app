@@ -80,5 +80,27 @@
       "link": "https://passionconferences.com/holy-land/",
       "title": "Título de la noticia o evento"
     }
+  ],
+  "social_networks": [
+    {
+      "name": "Instagram",
+      "key": "ig",
+      "link": "https://www.instagram.com/passion268?igsh=MXcxdThhOTl4MHN2bw=="
+    },
+    {
+      "name": "Facebook",
+      "key": "fb",
+      "link": "https://www.instagram.com/passion268?igsh=MXcxdThhOTl4MHN2bw=="
+    },
+    {
+      "name": "TikTok",
+      "key": "tt",
+      "link": "https://www.instagram.com/passion268?igsh=MXcxdThhOTl4MHN2bw=="
+    },
+    {
+      "name": "Youtube",
+      "key": "yt",
+      "link": "https://www.instagram.com/passion268?igsh=MXcxdThhOTl4MHN2bw=="
+    }
   ]
 }

@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:valiu_app/presentation/navigation/Navigation.dart';
+import 'package:valiu_app/presentation/organims/SocialTab.dart';
 import 'package:valiu_app/presentation/screens/LoginScreen.dart';
+import 'package:valiu_app/presentation/screens/UpdatesSocialScreen.dart';
 import 'data/datasources/NotificationManager.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: AppRoutes.home,
-      home: const LoginScreen(),
+      // initialRoute: AppRoutes.home,
+      home: const UpdatesSocialScreen(),
       // home: const HomeScreen(),
       onGenerateRoute: NavigationGraph.generateRoute,
     );

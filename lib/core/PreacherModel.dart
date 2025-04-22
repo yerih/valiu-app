@@ -4,7 +4,7 @@ class PreacherModel {
   final String name;
   final String image;
   final String bio;
-  final SocialNetworks socialNetworks;
+  final PreacherSocials socialNetworks;
 
   PreacherModel({required this.name, required this.image, required this.bio, required this.socialNetworks});
 
@@ -13,7 +13,7 @@ class PreacherModel {
       name: map['name']?.toString() ?? '',
       image: map['image']?.toString() ?? '',
       bio: map['bio']?.toString() ?? '',
-      socialNetworks: map['social_networks'] != null ? SocialNetworks.fromJson(map['social_networks'] as Map<Object?, Object?>) : SocialNetworks(),
+      socialNetworks: map['social_networks'] != null ? PreacherSocials.fromJson(map['social_networks'] as Map<Object?, Object?>) : PreacherSocials(),
     );
   }
 
@@ -37,14 +37,14 @@ class PreacherModel {
 
 
 
-class SocialNetworks {
+class PreacherSocials {
   String? fb;
   String? x;
   String? ig;
   String? yt;
   String? web;
 
-  SocialNetworks({
+  PreacherSocials({
     this.fb,
     this.x,
     this.ig,
@@ -52,8 +52,8 @@ class SocialNetworks {
     this.web,
   });
 
-  factory SocialNetworks.fromJson(Map<Object?, Object?> json) {
-    return SocialNetworks(
+  factory PreacherSocials.fromJson(Map<Object?, Object?> json) {
+    return PreacherSocials(
       fb: json['fb'] as String?,
       x: json['x'] as String?,
       ig: json['ig'] as String?,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:valiu_app/presentation/navigation/Navigation.dart';
 
 import '../atomics/UserCard.dart';
@@ -38,8 +39,8 @@ class _SideMenuState extends State<SideMenu> {
                     SideMenuTile(title: 'Schedule', icon: Icons.calendar_today_outlined, onTap: ()=> Navigator.pushNamed(context, AppRoutes.schedule)),
                     SideMenuTile(title: 'Maps', icon: Icons.location_on_outlined, onTap: ()=> Navigator.pushNamed(context, AppRoutes.maps)),
                     SideMenuTile(title: 'Leading the way', icon: Icons.person_outline, onTap: ()=> Navigator.pushNamed(context, AppRoutes.leading)),
-                    SideMenuTile(title: 'Event info', icon: Icons.info_outline, onTap: ()=> Navigator.pushNamed(context, AppRoutes.eventInfo)),
-                    SideMenuTile(title: 'Resources', icon: Icons.checkroom, onTap: ()=> Navigator.pushNamed(context, AppRoutes.resources)),
+                    SideMenuTile(title: 'Event info', icon: Icons.info_outline, onTap: ()=> launchUrl(Uri.parse('https://www.passion2026.com/?id=95e97a7a5d550f79'))),
+                    SideMenuTile(title: 'Resources', icon: Icons.checkroom, onTap: ()=> launchUrl(Uri.parse('https://www.passion2026.com/?id=95e97a7a5d550f79'))),
                     SideMenuTile(title: 'Scripture translation', icon: Icons.menu_book_outlined, onTap: ()=> Navigator.pushNamed(context, AppRoutes.scripture)),
                     SideMenuTile(title: 'Updates + social', icon: Icons.book_online_outlined, onTap: ()=> Navigator.pushNamed(context, AppRoutes.updates)),
 

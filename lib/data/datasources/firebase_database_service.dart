@@ -1,7 +1,7 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:valiu_app/core/SocialNetworkModel.dart';
 import '../../core/NewsModel.dart';
 import '../../core/PreacherModel.dart';
 
@@ -34,6 +34,20 @@ class FirebaseRealTimeDB {
     }
   }
 
+
+  static Future<List<dynamic>> getSocialNetworks() async {
+    try {
+      final snapshot = await _database.ref('social_networks').get();
+      if (snapshot.exists && snapshot.value is List<dynamic>) {
+        return SocialNetworkModel.listFromJson(snapshot.value as List<dynamic>);
+        // return snapshot.value as List<dynamic>;
+      }
+      return [];
+    } catch (e) {
+      debugPrint('Failed to fetch social networks: $e');
+      return [];
+    }
+  }
 }
 
 
