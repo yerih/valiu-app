@@ -1,11 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:valiu_app/core/Result.dart';
-import 'package:valiu_app/data/datasources/NotificationManager.dart';
-import 'package:valiu_app/data/datasources/firebase_database_service.dart';
 import 'package:valiu_app/data/repositories/AuthRepository.dart';
 
 
@@ -33,42 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: const Text('Login'),
         onPressed: () async {
-
-          FirebaseMessaging messaging = FirebaseMessaging.instance;
-          NotificationSettings settings = await messaging.requestPermission(
-            alert: true,
-            announcement: true,
-            badge: true,
-            carPlay: false,
-            criticalAlert: false,
-            provisional: true,
-            sound: true,
-          );
-          debugPrint('User granted permission: ${settings.authorizationStatus}');
-          final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
-          final token = await FirebaseMessaging.instance.getToken();
-          debugPrint(apnsToken != null ? 'cloudMssaging APN token: $apnsToken':'cloudMssaging APN token: null');
-          debugPrint(token != null ? 'cloudMssaging token: $token':'cloudMssaging token: null');
-
-          // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-          //   debugPrint('Message data: ${message.data}');
-          //
-          //   if (message.notification != null) {
-          //     NotificationManager().showNotification(message.notification?.title, message.notification?.body);
-          //   }
-          // });
-
-
-          // FirebaseMessaging.instance.onTokenRefresh
-          //     .listen((fcmToken) {
-          //       debugPrint('fcmToken is updated: $fcmToken');
-          // })
-          //     .onError((err) {
-          //       debugPrint('fcmToken updated error');
-          //   // Error getting token.
-          // });
-
-
           // final list = await FirebaseRealTimeDB.getNews();
           // debugPrint(list.toString());
           // final result = await authRepo.signUp(email: 'a@a.com', password: 'password1.');
