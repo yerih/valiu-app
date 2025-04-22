@@ -4,9 +4,10 @@
 class SocialNetworkModel {
   final String? name;
   final String? key;
+  final String? username;
   final String? link;
 
-  SocialNetworkModel({this.name, this.key, this.link});
+  SocialNetworkModel({this.name, this.key, this.link, this.username});
 
 
 
@@ -15,6 +16,7 @@ class SocialNetworkModel {
       name: map['name']?.toString() ?? '',
       key: map['key']?.toString() ?? '',
       link: map['link']?.toString() ?? '',
+      username: map['username']?.toString() ?? '',
     );
   }
 
@@ -28,12 +30,13 @@ class SocialNetworkModel {
       'name': name,
       'key': key,
       'link': link,
+      'username': username,
       };
   }
 
   @override
   String toString() {
-    return 'SocialNetworkModel{name: $name, key: $key, link: $link}';
+    return 'SocialNetworkModel{name: $name, key: $key, link: $link, username: $username}';
   }
 
 }

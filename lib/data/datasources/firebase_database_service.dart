@@ -35,7 +35,7 @@ class FirebaseRealTimeDB {
   }
 
 
-  static Future<List<dynamic>> getSocialNetworks() async {
+  static Future<List<SocialNetworkModel>> getSocialNetworks() async {
     try {
       final snapshot = await _database.ref('social_networks').get();
       if (snapshot.exists && snapshot.value is List<dynamic>) {
