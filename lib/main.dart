@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:valiu_app/presentation/navigation/Navigation.dart';
 import 'package:valiu_app/presentation/organims/SocialTab.dart';
 import 'package:valiu_app/presentation/screens/LoginScreen.dart';
+import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/screens/UpdatesSocialScreen.dart';
 import 'data/datasources/NotificationManager.dart';
 import 'firebase_options.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: AppRoutes.home,
-      home: const UpdatesSocialScreen(),
+      home: const ScheduleScreen(),
       // home: const HomeScreen(),
       onGenerateRoute: NavigationGraph.generateRoute,
     );

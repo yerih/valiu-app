@@ -9,21 +9,21 @@ class StyleText {
     fontWeight: FontWeight.bold,
   );
 
-  static TextStyle detailedDate() => TextStyle(fontSize: 15, color: Colors.grey);
+  static TextStyle detailedDate() => TextStyle(fontSize: 13, color: Colors.grey);
 
   static TextStyle titleDetail() => TextStyle(
-    fontSize: 21,
+    fontSize: 17,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
 
   static TextStyle descriptionDetail() => TextStyle(
-    fontSize: 17,
+    fontSize: 15,
     color: Colors.black,
   );
 
   static TextStyle link() => TextStyle(
-    fontSize: 17,
+    fontSize: 15,
     color: Colors.blue,
     decoration: TextDecoration.underline,
   );
