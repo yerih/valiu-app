@@ -14,9 +14,9 @@ class DayScheduledModel {
 
 
   static List<DayScheduledModel> generateDays() => [
-    DayScheduledModel(number: '06', name: 'Monday', date: DateTime(2024)),
-    DayScheduledModel(number: '07', name: 'Tuesday', date: DateTime(2025)),
-    DayScheduledModel(number: '08', name: 'Wednesday', date: DateTime(2026)),
+    DayScheduledModel(number: '6', name: 'Mon', date: DateTime(2024)),
+    DayScheduledModel(number: '7', name: 'Tue', date: DateTime(2025)),
+    DayScheduledModel(number: '8', name: 'Wed', date: DateTime(2026)),
   ];
 
 }

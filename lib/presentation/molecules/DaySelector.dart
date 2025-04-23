@@ -9,8 +9,9 @@ import '../atomics/ButtonCircle.dart';
 class DaySelector extends StatefulWidget {
 
   final void Function(int index) onTapItem;
+  final List<DayScheduledModel> days;
 
-  const DaySelector({super.key, required this.onTapItem});
+  const DaySelector({super.key, required this.onTapItem, this.days = const []});
 
   @override
   State<StatefulWidget> createState() => _DaySelectorState();
@@ -21,12 +22,12 @@ class DaySelector extends StatefulWidget {
 
 class _DaySelectorState extends State<DaySelector> {
 
-  final days = DayScheduledModel.generateDays();
   int selected = 0;
   Color color = Colors.transparent;
 
   @override
   Widget build(BuildContext context) {
+    List<DayScheduledModel> days = widget.days;
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
