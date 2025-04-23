@@ -5,11 +5,16 @@ class ButtonCircle extends StatelessWidget {
   final String letter;
   final String footer;
 
+  final Color backgroundColor;
+  final Color textColor;
+
   const ButtonCircle({
     super.key,
     required this.onTap,
     this.letter = '',
     this.footer = '',
+    this.backgroundColor = Colors.transparent,
+    this.textColor = Colors.black,
   });
 
   @override
@@ -21,8 +26,9 @@ class ButtonCircle extends StatelessWidget {
         child: Column(
           children: [
             CircleAvatar(
-              backgroundColor: Colors.black,
-              child: Text(letter, style: TextStyle(color: Colors.white)),
+              maxRadius: 15,
+              backgroundColor: backgroundColor,
+              child: Text(letter, style: TextStyle(color: textColor)),
             ),
             SizedBox(height: 1),
             Text(footer, style: TextStyle(fontSize: 12,color: Colors.grey.shade500))
