@@ -21,15 +21,9 @@ class DaySelector extends StatefulWidget {
 
 class _DaySelectorState extends State<DaySelector> {
 
-  final days = [
-    DayScheduledModel(name: 'Mon', number: '1'),
-    DayScheduledModel(name: 'Tue', number: '2'),
-    DayScheduledModel(name: 'Wed', number: '3'),
-  ];
-  // final days = List<int>.generate(3, (index) => index + 1);
+  final days = DayScheduledModel.generateDays();
   int selected = 0;
   Color color = Colors.transparent;
-  // void Function(int index) onTapItem = widget.onTapItem;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +32,12 @@ class _DaySelectorState extends State<DaySelector> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
-              onPressed: (){if(selected > 0) {setState(() {selected -= 1;});}},
+              onPressed: (){
+                if(selected > 0) {
+                  setState(() {selected -= 1;});
+                  widget.onTapItem.call(days.indexOf(days[selected]));
+                }
+              },
               icon: Icon(Icons.arrow_back_ios, color: Colors.grey.shade300,)
           ),
           Row(
@@ -60,7 +59,12 @@ class _DaySelectorState extends State<DaySelector> {
               ]
           ),
           IconButton(
-            onPressed: (){if(selected < days.length-1) setState(() {selected += 1;});},
+            onPressed: (){
+              if(selected < days.length-1) {
+                setState(() {selected += 1;});
+                widget.onTapItem.call(days.indexOf(days[selected]));
+              }
+            },
             icon: Icon(Icons.arrow_forward_ios, color: Colors.grey.shade300,)
           ),
         ]
