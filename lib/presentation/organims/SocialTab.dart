@@ -26,7 +26,7 @@ class _SocialTabState extends State<SocialTab> {
     FirebaseRealTimeDB.getSocialNetworks().then((value) => setState(() {
       items = value;
       isLoading = false;
-      debugPrint('items: $items');
+      // debugPrint('items: $items');
     }));
   }
 

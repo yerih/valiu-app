@@ -4,6 +4,7 @@ import 'package:valiu_app/data/datasources/firebase_database_service.dart';
 import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 
 import '../organims/SocialTab.dart';
+import '../organims/UpdatesTab.dart';
 
 class UpdatesSocialScreen extends StatefulWidget {
   const UpdatesSocialScreen({super.key});
@@ -13,10 +14,10 @@ class UpdatesSocialScreen extends StatefulWidget {
 }
 
 class _UpdatesSocialScreenState extends State<UpdatesSocialScreen> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Center(child: Text('Updates')),
+    UpdatesTab(),
     SocialTab(),
     // Center(child: Text('Social')),
   ];

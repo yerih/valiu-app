@@ -14,6 +14,16 @@ extension DateTimeFormatting on DateTime{
 
     return '$dayName, $monthName $day, $year - $hourStr:$minuteStr $period';
   }
+  String formattedDate() {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'];
+
+    final dayName = days[weekday % 7];
+    final monthName = months[month - 1];
+
+    return '$dayName, $monthName $day, $year';
+  }
 }
 
 
