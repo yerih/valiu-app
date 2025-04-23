@@ -146,10 +146,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 children: [
                   ...days.map(
                     (day) => ListTile(
-                      key: _section1Key,
+                      // key: _section1Key,
                       minVerticalPadding: 0,
                       contentPadding: EdgeInsets.zero,
-                      title: ScheduleListTile(),
+                      title: ScheduleListTile(day: day),
                     ),
                   ),
                 ],

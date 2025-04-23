@@ -2,11 +2,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:valiu_app/core/DayScheduledModel.dart';
 
 class ScheduleListTile extends StatelessWidget {
-  const ScheduleListTile({
-    super.key,
-  });
+  const ScheduleListTile({super.key, required DayScheduledModel day,});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,7 @@ class ScheduleListTile extends StatelessWidget {
                         ),
                         image: DecorationImage(
                           image: NetworkImage(
-                            'https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg',
+                            'https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg'
                           ),
                           fit: BoxFit.cover,
                         ),
