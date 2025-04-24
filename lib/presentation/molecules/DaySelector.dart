@@ -52,7 +52,7 @@ class _DaySelectorState extends State<DaySelector> {
                       widget.onTapItem.call(days.indexOf(day));
                     },
                     letter: day.number,
-                    footer: day.name,
+                    footer: day.name.substring(0, 3),
                     backgroundColor: selected == days.indexOf(day) ? Colors.black : Colors.transparent,
                     textColor: selected == days.indexOf(day) ? Colors.white : Colors.black,
                   )
