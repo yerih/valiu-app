@@ -5,6 +5,7 @@ import 'package:valiu_app/presentation/organims/SocialTab.dart';
 import 'package:valiu_app/presentation/screens/LoginScreen.dart';
 import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/screens/UpdatesSocialScreen.dart';
+import 'core/DayScheduledModel.dart';
 import 'data/datasources/NotificationManager.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final days = DayScheduledModel.generateDays();
     return MaterialApp(
       title: 'Valiu App',
       theme: ThemeData(
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: AppRoutes.home,
-      home: const ScheduleScreen(),
+      home: ScheduleScreen(days: days),
       // home: const HomeScreen(),
       onGenerateRoute: NavigationGraph.generateRoute,
     );

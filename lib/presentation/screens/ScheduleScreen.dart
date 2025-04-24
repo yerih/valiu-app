@@ -8,7 +8,9 @@ import '../organims/DatePickerLauncher.dart';
 import '../organims/ScheduleListTile.dart';
 
 class ScheduleScreen extends StatefulWidget {
-  const ScheduleScreen({super.key});
+  final List<DayScheduledModel> days;
+
+  const ScheduleScreen({super.key, required this.days});
 
   @override
   State<StatefulWidget> createState() => _ScheduleScreenState();
@@ -33,7 +35,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final days = DayScheduledModel.generateDays();
+    final days = widget.days;//DayScheduledModel.generateDays();
     final globalKeys = List<GlobalKey>.generate(days.length, (index) => GlobalKey());
     return Scaffold(
       appBar: CustomAppBar(title: 'Schedule'),

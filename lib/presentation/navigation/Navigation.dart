@@ -5,9 +5,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/screens/NewsDetailScreen.dart';
+import 'package:valiu_app/presentation/screens/ScheduleDetailScreen.dart';
 import 'package:valiu_app/presentation/screens/ScheduleScreen.dart';
 import 'package:valiu_app/presentation/styles/StyleText.dart';
 
+import '../../core/DayScheduledModel.dart';
 import '../../core/NewsModel.dart';
 import '../../core/PreacherModel.dart';
 import '../screens/EventScreen.dart';
@@ -22,6 +24,7 @@ import '../screens/UpdatesSocialScreen.dart';
 class AppRoutes {
   static const String home = '/';
   static const String schedule = '/schedule';
+  static const String scheduleDetail = '/scheduleDetail';
   static const String maps = '/maps';
   static const String leading = '/leadingTheWay';
   static const String eventInfo = '/eventInfo';
@@ -40,7 +43,9 @@ class NavigationGraph {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home: return MaterialPageRoute(builder: (_) => const HomeScreen());
-      case AppRoutes.schedule: return MaterialPageRoute(builder: (_) => const ScheduleScreen());
+      case AppRoutes.schedule:
+        final days = settings.arguments as List<DayScheduledModel>;
+        return MaterialPageRoute(builder: (_) => ScheduleScreen(days: days));
       case AppRoutes.maps: return MaterialPageRoute(builder: (_) => const MapScreen());
       case AppRoutes.leading: return MaterialPageRoute(builder: (_) => const LeadingScreen());
       case AppRoutes.eventInfo: return MaterialPageRoute(builder: (_) => const EventScreen());
@@ -54,6 +59,9 @@ class NavigationGraph {
       case AppRoutes.preacher:
         final preacher = settings.arguments as PreacherModel;
         return MaterialPageRoute(builder: (_) => PreacherScreen(preacher: preacher));
+      case AppRoutes.scheduleDetail:
+        final program = settings.arguments as ProgramModel;
+        return MaterialPageRoute(builder: (_) => ScheduleDetailScreen(program: program));
       case AppRoutes.settings:
         // return MaterialPageRoute(builder: (_) => const SettingsScreen());
       case AppRoutes.profile:
