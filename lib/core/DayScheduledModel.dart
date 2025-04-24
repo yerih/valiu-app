@@ -19,7 +19,7 @@ class DayScheduledModel {
 
   static List<DayScheduledModel> generateDays() => [
     DayScheduledModel(number: '6', name: 'Monday', monthName: 'January', date: DateTime(2025, 1, 6), programs: ProgramModel.generatePrograms()),
-    DayScheduledModel(number: '7', name: 'Tuesday', monthName: 'January', date: DateTime(2025), programs: ProgramModel.generatePrograms()),
+    DayScheduledModel(number: '7', name: 'Tuesday', monthName: 'January', date: DateTime(2025, 1, 7), programs: ProgramModel.generatePrograms()),
     DayScheduledModel(number: '8', name: 'Wednesday', monthName: 'January', date: DateTime(2025, 1, 8), programs: ProgramModel.generatePrograms()),
   ];
 

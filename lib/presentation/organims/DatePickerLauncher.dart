@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-Future<DateTime?> launchDatePicker(BuildContext context, DateTime initDate, DateTime lastDate) async {
+Future<DateTime?> launchDatePicker(
+    BuildContext context,
+    DateTime initDate,
+    DateTime lastDate,
+    // void Function(DateTime date)? onDateSelected,
+) async {
   final DateTime? picked = await showDatePicker(
     context: context,
     initialDate: initDate,
@@ -46,7 +51,6 @@ Future<DateTime?> launchDatePicker(BuildContext context, DateTime initDate, Date
       );
     },
   );
-  debugPrint('selected date: $picked');
   if (picked != null) {
     return picked.isBefore(initDate) ? initDate : picked.isAfter(lastDate) ? lastDate : picked;
   }
@@ -54,40 +58,6 @@ Future<DateTime?> launchDatePicker(BuildContext context, DateTime initDate, Date
 }
 
 
-
-
-
-Future<void> launchDateRangePicker(BuildContext context, DateTime initDate, DateTime lastDate) async {
-  final DateTimeRange? picked = await showDateRangePicker(
-    context: context,
-    firstDate: DateTime(2000),
-    lastDate: DateTime(2100),
-    currentDate: DateTime.now(),
-    saveText: 'Done',
-    helpText: 'Select date range',
-    builder: (context, child) {
-      return Theme(
-        data: Theme.of(context).copyWith(
-          colorScheme: ColorScheme.light(
-            primary: Colors.blue, // Header background color
-            onPrimary: Colors.white, // Header text color
-            onSurface: Colors.black, // Body text color
-          ),
-          textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.blue, // Button text color
-            ),
-          ),
-        ),
-        child: child!,
-      );
-    },
-  );
-
-  if (picked != null) {
-    print('Selected range: ${picked.start} to ${picked.end}');
-  }
-}
 
 
 

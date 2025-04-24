@@ -16,13 +16,19 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final ScrollController _scrollController = ScrollController();
-  
+  final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
 
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
     if (context != null) {
       Scrollable.ensureVisible(context, duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
     }
+  }
+
+  @override
+  void dispose() {
+    selectedIndex.dispose(); // Important!
+    super.dispose();
   }
 
   @override
@@ -38,10 +44,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Text('seeker'),
           CalendarHeader(onTapItem: () async {
             final selectedDate = await launchDatePicker(context, DateTime(2025, 1, 6), DateTime(2025, 1, 8));
-
-            _scrollToSection(globalKeys[days.indexWhere((element) => element.date == selectedDate)]);
+            selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
+            debugPrint('selectedIndx: ${selectedIndex.value}');
+            _scrollToSection(globalKeys[selectedIndex.value]);
           }),
-          DaySelector(days: days, onTapItem: (index) { _scrollToSection(globalKeys[index]);}),
+          DaySelector(
+              days: days,
+              onTapItem: (index) {
+                selectedIndex.value = index;
+                _scrollToSection(globalKeys[index]);
+              },
+              externalSelection: selectedIndex
+          ),
           Expanded(
             child: SingleChildScrollView(
               controller: _scrollController,
