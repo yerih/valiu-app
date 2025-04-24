@@ -46,9 +46,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           Text('seeker'),
           CalendarHeader(onTapItem: () async {
             final selectedDate = await launchDatePicker(context, DateTime(2025, 1, 6), DateTime(2025, 1, 8));
-            selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
-            debugPrint('selectedIndx: ${selectedIndex.value}');
-            _scrollToSection(globalKeys[selectedIndex.value]);
+            if(selectedDate != null){
+              selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
+              debugPrint('selectedIndx: ${selectedIndex.value}');
+              _scrollToSection(globalKeys[selectedIndex.value]);
+            }
           }),
           DaySelector(
               days: days,
