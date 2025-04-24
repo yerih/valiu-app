@@ -4,6 +4,7 @@ import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 import 'package:valiu_app/presentation/molecules/DaySelector.dart';
 
 import '../../core/DayScheduledModel.dart';
+import '../organims/DatePickerLauncher.dart';
 import '../organims/ScheduleListTile.dart';
 
 class ScheduleScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final ScrollController _scrollController = ScrollController();
+  
 
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
@@ -34,7 +36,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('seeker'),
-          CalendarHeader(onTapItem: () { }),
+          CalendarHeader(onTapItem: () async {
+            final selectedDate = await launchDatePicker(context, DateTime(2025, 1, 6), DateTime(2025, 1, 8));
+
+            _scrollToSection(globalKeys[days.indexWhere((element) => element.date == selectedDate)]);
+          }),
           DaySelector(days: days, onTapItem: (index) { _scrollToSection(globalKeys[index]);}),
           Expanded(
             child: SingleChildScrollView(
