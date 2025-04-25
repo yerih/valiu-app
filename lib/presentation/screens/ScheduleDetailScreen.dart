@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:valiu_app/core/extensions.dart';
 import '../../core/ProgramModel.dart';
+import '../organims/ShareBottomSheetLauncher.dart';
 import '../styles/StyleText.dart';
 
 
@@ -60,7 +61,7 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
               ),
               actions: [
                 IconButton(
-                  onPressed: () => launchUrl(Uri.parse(program.link)),
+                  onPressed: () => shareLink(context, link: program.link),
                   icon: Icon(Icons.share, color: Colors.white),
                 )
               ]
