@@ -12,6 +12,7 @@ import 'package:valiu_app/presentation/styles/StyleText.dart';
 import '../../core/DayScheduledModel.dart';
 import '../../core/NewsModel.dart';
 import '../../core/PreacherModel.dart';
+import '../../core/ProgramModel.dart';
 import '../screens/EventScreen.dart';
 import '../screens/HomeScreen.dart';
 import '../screens/LeadingScreen.dart';

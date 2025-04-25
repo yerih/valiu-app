@@ -74,13 +74,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                           if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
                         },
                       )
-                      // VisibilityDetector(
-                      //   key: globalKeys[days.indexOf(day)],
-                      //   onVisibilityChanged: (VisibilityInfo info) {
-                      //     if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
-                      //   },
-                      //   child: ScheduleListTile(day: day),
-                      // )
                   ),
                 ],
               ),

@@ -20,6 +20,7 @@ class StyleText {
   static TextStyle descriptionDetail() => TextStyle(
     fontSize: 15,
     color: Colors.black,
+    fontWeight: FontWeight.normal,
   );
 
   static TextStyle link() => TextStyle(

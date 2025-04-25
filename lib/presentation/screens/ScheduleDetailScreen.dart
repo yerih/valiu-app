@@ -3,7 +3,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:valiu_app/core/extensions.dart';
 import '../../core/DayScheduledModel.dart';
+import '../../core/ProgramModel.dart';
 import '../styles/StyleText.dart';
 
 class ScheduleDetailScreen extends StatefulWidget {
@@ -22,76 +24,77 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
   Widget build(BuildContext context) {
     final ProgramModel program = widget.program;
     return Builder(
-      builder:
-          (context) => CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          SliverAppBar(
-            foregroundColor: Colors.white,
-            automaticallyImplyLeading: true,
-            pinned: true,
-            expandedHeight: 300,
-            backgroundColor: Colors.black,
-            flexibleSpace: Stack(
-              children: [
-                FlexibleSpaceBar(
-                  title: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [],
-                  ),
-                  centerTitle: false,
-                  titlePadding: const EdgeInsets.only(left: 20),
-                  collapseMode: CollapseMode.parallax,
-                  background: Container(
-                    color: Colors.white,
-                    child: ClipRRect(
-                        borderRadius: const BorderRadius.only(bottomRight: Radius.circular(20),),
-                        child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(program.image),
-                                    fit: BoxFit.cover
-                                )
-                            )
-                        )
+      builder: (context) => Material(
+        child: CustomScrollView(
+          controller: _scrollController,
+          slivers: [
+            SliverAppBar(
+              foregroundColor: Colors.white,
+              automaticallyImplyLeading: true,
+              pinned: true,
+              expandedHeight: 300,
+              backgroundColor: Colors.black,
+              flexibleSpace: Stack(
+                children: [
+                  FlexibleSpaceBar(
+                    title: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [],
+                    ),
+                    centerTitle: false,
+                    titlePadding: const EdgeInsets.only(left: 20),
+                    collapseMode: CollapseMode.parallax,
+                    background: Container(
+                      color: Colors.white,
+                      child: ClipRRect(
+                          borderRadius: const BorderRadius.only(bottomRight: Radius.circular(40),),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(program.image),
+                                      fit: BoxFit.cover
+                                  )
+                              )
+                          )
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
 
 
-          SliverToBoxAdapter(
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(program.title, style: StyleText.titleDetail()),
-                      SizedBox(height: 20),
+            SliverToBoxAdapter(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(program.title, style: StyleText.titleDetail()),
+                        SizedBox(height: 20),
 
-                      Padding(padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(program.time, style: StyleText.textDetail()),
-                              SizedBox(height: 15),
-                            ]
+                        Padding(padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('${program.date.formatTo(format: 'EEE, MMM d')} | ${program.time}', style: StyleText.descriptionDetail()),
+                                SizedBox(height: 15),
+                              ]
+                          ),
                         ),
-                      ),
 
-                      SizedBox(height: 400,)
-                    ]
+                        SizedBox(height: 400,)
+                      ]
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

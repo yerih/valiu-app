@@ -1,5 +1,7 @@
 
 
+import 'ProgramModel.dart';
+
 class DayScheduledModel {
 
   final String number;
@@ -24,37 +26,3 @@ class DayScheduledModel {
   ];
 
 }
-
-class ProgramModel {
-  String title;
-  String image;
-  String time;
-  
-  ProgramModel({
-    required this.title,
-    required this.image,
-    required this.time,
-  });
-
-  static List<ProgramModel> generatePrograms() => [
-    ProgramModel(
-        title: 'Doors Open', 
-        time: '6:00 PM',
-        image: 'https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg'
-    ),
-    ProgramModel(
-        title: 'Session 1',
-        time: '7:00 PM',
-        image: 'https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg'
-    ),
-    ProgramModel(
-        title: 'Session 2',
-        time: '8:00 PM',
-        image: 'https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg'
-    ),
-  ];
-}
-
-
-
-

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/navigation/Navigation.dart';
-
-import '../../core/DayScheduledModel.dart';
+import '../../core/ProgramModel.dart';
 
 
 class ProgramListTile extends StatelessWidget{
@@ -13,7 +12,6 @@ class ProgramListTile extends StatelessWidget{
     return
       Column(
         children: [
-
           Container(
             width: double.infinity,
             color: Colors.grey.shade300,
@@ -22,21 +20,21 @@ class ProgramListTile extends StatelessWidget{
               child: Text(program.time, style: TextStyle(fontSize: 13)),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(color: Colors.grey.shade300, width: 1.0,)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 0,),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.scheduleDetail, arguments: program);
-                    },
-                    child: Row(
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, AppRoutes.scheduleDetail, arguments: program);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.grey.shade300, width: 1.0,)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 7, bottom: 7, left: 15, right: 0,),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       children: [
                         Container(
                           height: 50,
@@ -44,7 +42,7 @@ class ProgramListTile extends StatelessWidget{
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
-                              image: NetworkImage('https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg'),
+                              image: NetworkImage(program.image),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -53,25 +51,21 @@ class ProgramListTile extends StatelessWidget{
                         Text(program.title, style: TextStyle(fontWeight: FontWeight.bold)),
                       ],
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.more_vert,
-                      color: Colors.grey.shade400,
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.more_vert,
+                        color: Colors.grey.shade400,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
         ],
       );
   }
-
-
-
-
 }
 
 

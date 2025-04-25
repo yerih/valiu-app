@@ -1,4 +1,6 @@
 
+import 'package:intl/intl.dart';
+
 extension DateTimeFormatting on DateTime{
   String toDetailed() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -24,6 +26,12 @@ extension DateTimeFormatting on DateTime{
 
     return '$dayName, $monthName $day, $year';
   }
+
+  String formatTo({
+    String format = 'EEE, MMM d, yyyy',
+    String locale = 'en_US',
+  }) => DateFormat(format, locale).format(this);
+
 }
 
 

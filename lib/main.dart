@@ -35,8 +35,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: AppRoutes.home,
-      home: ScheduleScreen(days: days),
-      // home: const HomeScreen(),
+      // home: ScheduleScreen(days: days),
+      home: const HomeScreen(),
       onGenerateRoute: NavigationGraph.generateRoute,
     );
   }
