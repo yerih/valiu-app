@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/core/DayScheduledModel.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
 import '../molecules/ProgramListTile.dart';
 
 class ScheduleListTile extends StatelessWidget {

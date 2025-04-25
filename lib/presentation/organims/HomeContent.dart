@@ -93,7 +93,7 @@ class _HomeContentState extends State<HomeContent> {
                       background: Container(
                         color: Colors.white,
                         child: const ClipRRect(
-                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),),
+                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(40),),
                           child: Image(image: AssetImage('assets/images/home_bg.jpg'), fit: BoxFit.cover,),
                         ),
                       ),

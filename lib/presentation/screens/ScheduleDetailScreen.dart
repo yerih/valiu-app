@@ -1,12 +1,10 @@
-
-
-
-
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:valiu_app/core/extensions.dart';
-import '../../core/DayScheduledModel.dart';
 import '../../core/ProgramModel.dart';
 import '../styles/StyleText.dart';
+
+
 
 class ScheduleDetailScreen extends StatefulWidget {
   const ScheduleDetailScreen({super.key, required this.program, this.onTapItem});
@@ -19,6 +17,7 @@ class ScheduleDetailScreen extends StatefulWidget {
 
 class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
   final ScrollController _scrollController = ScrollController();
+  bool _isAdded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +47,10 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
                     background: Container(
                       color: Colors.white,
                       child: ClipRRect(
-                          borderRadius: const BorderRadius.only(bottomRight: Radius.circular(40),),
+                          borderRadius: const BorderRadius.only(bottomRight: Radius.circular(40)),
                           child: Container(
                               decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(program.image),
-                                      fit: BoxFit.cover
-                                  )
+                                  image: DecorationImage(image: NetworkImage(program.image), fit: BoxFit.cover)
                               )
                           )
                       ),
@@ -62,6 +58,12 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
                   ),
                 ],
               ),
+              actions: [
+                IconButton(
+                  onPressed: () => launchUrl(Uri.parse(program.link)),
+                  icon: Icon(Icons.share, color: Colors.white),
+                )
+              ]
             ),
 
 
@@ -86,7 +88,24 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
                               ]
                           ),
                         ),
-
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              setState(() {_isAdded = !_isAdded;});
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+                                return _isAdded ? Colors.black : Colors.transparent;
+                              }),
+                              foregroundColor: WidgetStateProperty.resolveWith<Color>((states) {
+                                return _isAdded ? Colors.white : Colors.blue;
+                              }),
+                              side: WidgetStateProperty.all(BorderSide(color: Colors.black)),
+                            ),
+                            child: Text('${_isAdded ? 'Added':'Add'} to schedule', style: TextStyle(color: _isAdded ? Colors.white:Colors.black)),
+                          ),
+                        ),
                         SizedBox(height: 400,)
                       ]
                   ),

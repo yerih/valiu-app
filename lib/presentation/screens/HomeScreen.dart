@@ -73,7 +73,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   child: HomeContent(
                       onTapBurgerBtn: _openSideMenu,
                       onTapItem: (index, item) async {
-                        debugPrint('index: $index, item: $item');
                         Navigator.pushNamed(context, AppRoutes.details, arguments: item);
                       },
                     ),

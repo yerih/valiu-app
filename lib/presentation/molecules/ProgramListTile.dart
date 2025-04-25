@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/navigation/Navigation.dart';
+import 'package:valiu_app/presentation/organims/BottomSheetLauncher.dart';
 import '../../core/ProgramModel.dart';
 
 
@@ -41,10 +42,7 @@ class ProgramListTile extends StatelessWidget{
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: NetworkImage(program.image),
-                              fit: BoxFit.cover,
-                            ),
+                            image: DecorationImage(image: NetworkImage(program.image), fit: BoxFit.cover,),
                           ),
                         ),
                         SizedBox(width: 10),
@@ -52,11 +50,8 @@ class ProgramListTile extends StatelessWidget{
                       ],
                     ),
                     IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.more_vert,
-                        color: Colors.grey.shade400,
-                      ),
+                      onPressed: () => launchBottomSheet(context, program: program),
+                      icon: Icon(Icons.more_vert, color: Colors.grey.shade400,),
                     ),
                   ],
                 ),
