@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/molecules/CalendarHeader.dart';
 import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 import 'package:valiu_app/presentation/molecules/DaySelector.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../core/DayScheduledModel.dart';
 import '../organims/DatePickerLauncher.dart';
@@ -65,7 +66,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  ...days.map((day) => ScheduleListTile(day: day, key: globalKeys[days.indexOf(day)])),
+                  ...days.map((day) =>
+                      VisibilityDetector(
+                        key: globalKeys[days.indexOf(day)],
+                        onVisibilityChanged: (VisibilityInfo info) {
+                          if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
+                        },
+                        child: ScheduleListTile(day: day),
+                      )
+                  ),
                 ],
               ),
             ),
