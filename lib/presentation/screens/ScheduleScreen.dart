@@ -20,6 +20,9 @@ class ScheduleScreen extends StatefulWidget {
 class _ScheduleScreenState extends State<ScheduleScreen> {
   final ScrollController _scrollController = ScrollController();
   final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
+  List<DayScheduledModel> filtered = <DayScheduledModel>[];
+  late List<DayScheduledModel> original;
+  late List<DayScheduledModel> days;
 
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
@@ -33,10 +36,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     selectedIndex.dispose(); // Important!
     super.dispose();
   }
+  @override
+  void initState() {
+    super.initState();
+    original = widget.days;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final days = widget.days;//DayScheduledModel.generateDays();
+    days = widget.days;//DayScheduledModel.generateDays();
     final globalKeys = List<GlobalKey>.generate(days.length, (index) => GlobalKey());
     return Scaffold(
       appBar: CustomAppBar(title: 'Schedule'),
@@ -44,9 +52,23 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Text('seeker'),
           SearchBarApp(onChanged: (value) {
             debugPrint(value);
+            if(value.isNotEmpty) {
+              setState(() {
+                filtered = original.where((e) => e.name.toLowerCase().contains(value.toLowerCase())).toList();
+                debugPrint('filtered now: $filtered');
+              });
+              setState(() {
+                days = original;
+                debugPrint('days now: $days');
+              });
+            } else{
+              setState(() {
+                filtered = <DayScheduledModel>[];
+              });
+              debugPrint('filtered now: $filtered');
+            }
           }),
           CalendarHeader(onTapItem: () async {
             final selectedDate = await launchDatePicker(context, days[selectedIndex.value].date, days.first.date, days.last.date);
@@ -65,23 +87,41 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               externalSelection: selectedIndex
           ),
           Expanded(
-            child: SingleChildScrollView(
+            child: days.isNotEmpty ? ListView.builder(
               controller: _scrollController,
-              child: Column(
-                children: [
-                  ...days.map((day) =>
-                      ScheduleListTile(
-                        day: day,
-                        keyId: globalKeys[days.indexOf(day)],
-                        onVisibilityChanged: (VisibilityInfo info) {
-                          if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
-                        },
-                      )
-                  ),
-                ],
-              ),
-            ),
+              itemCount: days.length,
+              itemBuilder: (context, index) {
+                final day = days[index];
+                return ScheduleListTile(
+                    day: day,
+                    keyId: globalKeys[days.indexOf(day)],
+                    onVisibilityChanged: (VisibilityInfo info) {
+                      if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
+                    },
+                );
+                }
+            ) : Center(child: Text('No results')),
           ),
+
+
+          // Expanded(
+          //   child: days.isNotEmpty ? SingleChildScrollView(
+          //     controller: _scrollController,
+          //     child: Column(
+          //       children: [
+          //         ...days.map((day) =>
+          //             ScheduleListTile(
+          //               day: day,
+          //               keyId: globalKeys[days.indexOf(day)],
+          //               onVisibilityChanged: (VisibilityInfo info) {
+          //                 if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
+          //               },
+          //             )
+          //         ),
+          //       ],
+          //     ),
+          //   ) : Center(child: Text('No results')),
+          // ),
         ],
       ),
     );
