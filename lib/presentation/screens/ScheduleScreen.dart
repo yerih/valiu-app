@@ -46,7 +46,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         children: [
           Text('seeker'),
           CalendarHeader(onTapItem: () async {
-            final selectedDate = await launchDatePicker(context, DateTime(2025, 1, 6), DateTime(2025, 1, 8));
+            final selectedDate = await launchDatePicker(context, days[selectedIndex.value].date, days.first.date, days.last.date);
             if(selectedDate != null){
               selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
               debugPrint('selectedIndx: ${selectedIndex.value}');

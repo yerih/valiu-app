@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 Future<DateTime?> launchDatePicker(
     BuildContext context,
+    DateTime selectedDate,
     DateTime initDate,
     DateTime lastDate,
     // void Function(DateTime date)? onDateSelected,
 ) async {
   final DateTime? picked = await showDatePicker(
     context: context,
-    initialDate: initDate,
+    initialDate: selectedDate,
     firstDate: initDate,//DateTime(2024),
     lastDate: lastDate,//DateTime(2026),
     helpText: 'Select Date', // Title text
