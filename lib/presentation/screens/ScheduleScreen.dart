@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:valiu_app/presentation/molecules/CalendarHeader.dart';
 import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 import 'package:valiu_app/presentation/molecules/DaySelector.dart';
+import 'package:valiu_app/presentation/molecules/SearchBar.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import '../../core/DayScheduledModel.dart';
 import '../organims/DatePickerLauncher.dart';
@@ -43,7 +44,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('seeker'),
+          // Text('seeker'),
+          SearchBarApp(onChanged: (value) {
+            debugPrint(value);
+          }),
           CalendarHeader(onTapItem: () async {
             final selectedDate = await launchDatePicker(context, days[selectedIndex.value].date, days.first.date, days.last.date);
             if(selectedDate != null){
