@@ -4,8 +4,9 @@
 import 'package:flutter/material.dart';
 
 class CalendarHeader extends StatefulWidget {
-  const CalendarHeader({super.key, required this.onTapItem});
+  CalendarHeader({super.key, required this.onTapItem, this.isNotEmpty = true});
   final void Function() onTapItem;
+  bool isNotEmpty = true;
 
   @override
   State<StatefulWidget> createState() => _CalendarHeaderState();
@@ -15,7 +16,7 @@ class CalendarHeader extends StatefulWidget {
 class _CalendarHeaderState extends State<CalendarHeader> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return widget.isNotEmpty ? Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,6 +30,6 @@ class _CalendarHeaderState extends State<CalendarHeader> {
           ),
         ],
       ),
-    );
+    ) : Container();
   }
 }

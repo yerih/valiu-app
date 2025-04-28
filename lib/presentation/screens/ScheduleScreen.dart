@@ -32,10 +32,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   }
 
   @override
-  void dispose() {
-    selectedIndex.dispose(); // Important!
-    super.dispose();
-  }
+  void dispose() {selectedIndex.dispose(); super.dispose();}
+
   @override
   void initState() {
     super.initState();
@@ -45,7 +43,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // days = widget.days;//DayScheduledModel.generateDays();
     final globalKeys = List<GlobalKey>.generate(days.length, (index) => GlobalKey());
     return Scaffold(
       appBar: CustomAppBar(title: 'Schedule'),
@@ -54,31 +51,37 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SearchBarApp(onChanged: (value) {
-            debugPrint(value);
-            if(value.isNotEmpty) {
-              setState(() {
-                filtered = original.where((e) => e.name.toLowerCase().contains(value.toLowerCase())).toList();
-                debugPrint('filtered now: $filtered');
+            setState(() {
+              if(value.isNotEmpty){
+                filtered = original.map((e) =>
+                    DayScheduledModel(
+                        date: e.date,
+                        monthName: e.monthName,
+                        name: e.name,
+                        number: e.number,
+                        programs: e.programs.where((p) => p.title.toLowerCase().contains(value.toLowerCase())).toList()
+                    )
+                ).where((e) => e.programs.isNotEmpty).toList();
                 days = filtered;
-                debugPrint('days now: $days');
-              });
-            } else{
-              setState(() {
+              }
+              else{
                 filtered = <DayScheduledModel>[];
                 days = original;
-              });
-              debugPrint('filtered now: $filtered');
-              debugPrint('days now: $days');
-            }
+              }
+            });
           }),
-          CalendarHeader(onTapItem: () async {
-            final selectedDate = await launchDatePicker(context, days[selectedIndex.value].date, days.first.date, days.last.date);
-            if(selectedDate != null){
-              selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
-              debugPrint('selectedIndx: ${selectedIndex.value}');
-              _scrollToSection(globalKeys[selectedIndex.value]);
-            }
-          }),
+          CalendarHeader(
+              isNotEmpty: days.isNotEmpty,
+              onTapItem: () async {
+                final selectedDate = await launchDatePicker(
+                    context, days[selectedIndex.value].date, days.first.date, days.last.date);
+                if (selectedDate != null) {
+                  selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
+                  debugPrint('selectedIndx: ${selectedIndex.value}');
+                  _scrollToSection(globalKeys[selectedIndex.value]);
+                }
+              }
+          ),
           DaySelector(
               days: days,
               onTapItem: (index) {
@@ -101,28 +104,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                     },
                 );
                 }
-            ) : Center(child: Text('No results')),
+            ) : Center(child: Column(
+              children: [
+                SizedBox(height: 10,),
+                Text('No results', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                SizedBox(height: 10,),
+                Text('Try searching again or later for results', style: TextStyle(color: Colors.grey)),
+              ],
+            )),
           ),
-
-
-          // Expanded(
-          //   child: days.isNotEmpty ? SingleChildScrollView(
-          //     controller: _scrollController,
-          //     child: Column(
-          //       children: [
-          //         ...days.map((day) =>
-          //             ScheduleListTile(
-          //               day: day,
-          //               keyId: globalKeys[days.indexOf(day)],
-          //               onVisibilityChanged: (VisibilityInfo info) {
-          //                 if (info.visibleFraction >= 1) selectedIndex.value = days.indexOf(day);
-          //               },
-          //             )
-          //         ),
-          //       ],
-          //     ),
-          //   ) : Center(child: Text('No results')),
-          // ),
         ],
       ),
     );

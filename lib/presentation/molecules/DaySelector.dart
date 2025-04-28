@@ -30,7 +30,7 @@ class _DaySelectorState extends State<DaySelector> {
   @override
   Widget build(BuildContext context) {
     List<DayScheduledModel> days = widget.days;
-    return ValueListenableBuilder<int>(
+    return days.isNotEmpty ? ValueListenableBuilder<int>(
       valueListenable: widget.externalSelection,
       builder: (context, value, child) {
         selected = value;
@@ -80,7 +80,7 @@ class _DaySelectorState extends State<DaySelector> {
           ),
         );
       }
-    );
+    ): Container();
   }
 
 }

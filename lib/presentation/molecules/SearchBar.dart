@@ -21,7 +21,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
     super.initState();
     _controller.addListener((){
       setState(() {});
-      widget.onChanged?.call(_controller.text);
+      widget.onChanged?.call(_controller.text.trim());
     });
   }
 

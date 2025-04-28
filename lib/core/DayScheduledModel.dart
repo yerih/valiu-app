@@ -30,7 +30,7 @@ class DayScheduledModel {
             name: 'Tuesday',
             monthName: 'January',
             date: DateTime(2025, 1, 7),
-            programs: ProgramModel.generatePrograms()),
+            programs: ProgramModel.generateProgramsB()),
         DayScheduledModel(number: '8',
             name: 'Wednesday',
             monthName: 'January',
@@ -40,7 +40,7 @@ class DayScheduledModel {
 
   @override
   String toString() =>
-      'DayScheduledModel{date: $date}';
+      'DayScheduledModel{date: $date, programs: $programs}';
       // 'DayScheduledModel{number: $number, name: $name, date: $date, monthName: $monthName, programs: $programs}';
 
 }
