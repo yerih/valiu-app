@@ -20,6 +20,9 @@ class ProgramModel {
     this.isAdded = false,
   });
 
+  @override
+  String toString() => 'ProgramModel{title: $title, image: $image, time: $time, link: $link, date: $date, id: $id, isAdded: $isAdded}';
+
   static List<ProgramModel> generatePrograms() => [
     ProgramModel(
       title: 'Doors Open',

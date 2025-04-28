@@ -40,11 +40,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   void initState() {
     super.initState();
     original = widget.days;
+    days = original;
   }
 
   @override
   Widget build(BuildContext context) {
-    days = widget.days;//DayScheduledModel.generateDays();
+    // days = widget.days;//DayScheduledModel.generateDays();
     final globalKeys = List<GlobalKey>.generate(days.length, (index) => GlobalKey());
     return Scaffold(
       appBar: CustomAppBar(title: 'Schedule'),
@@ -58,16 +59,16 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
               setState(() {
                 filtered = original.where((e) => e.name.toLowerCase().contains(value.toLowerCase())).toList();
                 debugPrint('filtered now: $filtered');
-              });
-              setState(() {
-                days = original;
+                days = filtered;
                 debugPrint('days now: $days');
               });
             } else{
               setState(() {
                 filtered = <DayScheduledModel>[];
+                days = original;
               });
               debugPrint('filtered now: $filtered');
+              debugPrint('days now: $days');
             }
           }),
           CalendarHeader(onTapItem: () async {
