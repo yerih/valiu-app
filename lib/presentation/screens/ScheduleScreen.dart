@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valiu_app/data/datasources/firebase_database_service.dart';
 import 'package:valiu_app/presentation/molecules/CalendarHeader.dart';
 import 'package:valiu_app/presentation/molecules/CustomAppBar.dart';
 import 'package:valiu_app/presentation/molecules/DaySelector.dart';
@@ -9,9 +10,8 @@ import '../organims/DatePickerLauncher.dart';
 import '../organims/ScheduleListTile.dart';
 
 class ScheduleScreen extends StatefulWidget {
-  final List<DayScheduledModel> days;
 
-  const ScheduleScreen({super.key, required this.days});
+  const ScheduleScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _ScheduleScreenState();
@@ -21,8 +21,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   final ScrollController _scrollController = ScrollController();
   final ValueNotifier<int> selectedIndex = ValueNotifier<int>(0);
   List<DayScheduledModel> filtered = <DayScheduledModel>[];
-  late List<DayScheduledModel> original;
-  late List<DayScheduledModel> days;
+  List<DayScheduledModel> original = <DayScheduledModel>[];
+  List<DayScheduledModel> days = <DayScheduledModel>[];
 
   void _scrollToSection(GlobalKey key) {
     final context = key.currentContext;
@@ -37,8 +37,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   void initState() {
     super.initState();
-    original = widget.days;
-    days = original;
+    FirebaseRealTimeDB.getSchedule()
+        .then((value) {
+      setState(() {
+        original = value;
+        days = original;
+      });
+    });
   }
 
   @override
@@ -46,7 +51,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     final globalKeys = List<GlobalKey>.generate(days.length, (index) => GlobalKey());
     return Scaffold(
       appBar: CustomAppBar(title: 'Schedule'),
-      body: Column(
+      body: days.isEmpty ? Container(): Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final days = DayScheduledModel.generateDays();
     return MaterialApp(
       title: 'Valiu App',
       theme: ThemeData(

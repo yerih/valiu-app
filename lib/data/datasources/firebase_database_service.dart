@@ -1,6 +1,7 @@
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:valiu_app/core/DayScheduledModel.dart';
 import 'package:valiu_app/core/SocialNetworkModel.dart';
 import '../../core/NewsModel.dart';
 import '../../core/PreacherModel.dart';
@@ -17,7 +18,7 @@ class FirebaseRealTimeDB {
       }
       return [];
     } catch (e) {
-      throw Exception('Failed to fetch news: $e');
+      throw Exception('getNews: Failed to fetch news: $e');
     }
   }
 
@@ -30,7 +31,7 @@ class FirebaseRealTimeDB {
       }
       return [];
     } catch (e) {
-      throw Exception('Failed to fetch preachers: $e');
+      throw Exception('getPreachers: Failed to fetch preachers: $e');
     }
   }
 
@@ -40,11 +41,23 @@ class FirebaseRealTimeDB {
       final snapshot = await _database.ref('social_networks').get();
       if (snapshot.exists && snapshot.value is List<dynamic>) {
         return SocialNetworkModel.listFromJson(snapshot.value as List<dynamic>);
-        // return snapshot.value as List<dynamic>;
       }
       return [];
     } catch (e) {
-      debugPrint('Failed to fetch social networks: $e');
+      debugPrint('getSocialNetworks: Failed to fetch social networks: $e');
+      return [];
+    }
+  }
+
+  static Future<List<DayScheduledModel>> getSchedule() async {
+    try {
+      final snapshot = await _database.ref('schedule').get();
+      if (snapshot.exists && snapshot.value is List<dynamic>) {
+        return DayScheduledModel.listFromJson(snapshot.value as List<dynamic>);
+      }
+      return [];
+    } catch (e) {
+      debugPrint('getSchedule:Failed to fetch schedule: $e');
       return [];
     }
   }

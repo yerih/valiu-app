@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valiu_app/core/extensions.dart';
+import 'package:valiu_app/data/datasources/CalendarEventAdder.dart';
 import '../../core/ProgramModel.dart';
 import '../organims/ShareBottomSheetLauncher.dart';
 import '../styles/StyleText.dart';
@@ -93,6 +94,7 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
                           child: OutlinedButton(
                             onPressed: () {
                               setState(() {_isAdded = !_isAdded;});
+                              addEventToCalendar(program);
                             },
                             style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {

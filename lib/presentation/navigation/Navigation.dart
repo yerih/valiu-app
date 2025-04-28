@@ -44,9 +44,7 @@ class NavigationGraph {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.home: return MaterialPageRoute(builder: (_) => const HomeScreen());
-      case AppRoutes.schedule:
-        final days = settings.arguments as List<DayScheduledModel>;
-        return MaterialPageRoute(builder: (_) => ScheduleScreen(days: days));
+      case AppRoutes.schedule: return MaterialPageRoute(builder: (_) => ScheduleScreen());
       case AppRoutes.maps: return MaterialPageRoute(builder: (_) => const MapScreen());
       case AppRoutes.leading: return MaterialPageRoute(builder: (_) => const LeadingScreen());
       case AppRoutes.eventInfo: return MaterialPageRoute(builder: (_) => const EventScreen());

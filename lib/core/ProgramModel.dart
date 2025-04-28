@@ -1,6 +1,9 @@
 
 
 
+import 'package:flutter/cupertino.dart';
+import 'package:valiu_app/core/extensions.dart';
+
 class ProgramModel {
   int id;
   String title;
@@ -22,6 +25,20 @@ class ProgramModel {
 
   @override
   String toString() => 'ProgramModel{title: $title, image: $image, time: $time, link: $link, date: $date, id: $id, isAdded: $isAdded}';
+
+  factory ProgramModel.fromMap(DateTime date, Map<dynamic, dynamic> map) => ProgramModel(
+      id: map['id']?.toInt() ?? 0,
+      date: date,
+      time: map['time']?.toString() ?? '',
+      title: map['title']?.toString() ?? '',
+      image: map['image']?.toString() ?? '',
+      link: map['link']?.toString() ?? '',
+  );
+
+
+  static List<ProgramModel> listFromJson(DateTime date, List<dynamic>? json) {
+    return json?.map((item) => ProgramModel.fromMap(date, item as Map<dynamic, dynamic>)).toList() ?? [];
+  }
 
   static List<ProgramModel> generatePrograms() => [
     ProgramModel(

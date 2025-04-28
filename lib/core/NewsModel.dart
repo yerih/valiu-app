@@ -23,7 +23,6 @@ class NewsModel {
     required this.comments,
   });
 
-  // Factory to create single NewsModel from map
   factory NewsModel.fromMap(Map<dynamic, dynamic> map) {
     return NewsModel(
       id: map['id']?.toString() ?? '',
@@ -74,7 +73,6 @@ class CommentModel {
     );
   }
 
-  // Factory to create List<Comment> from JSON
   static List<CommentModel> listFromJson(List<dynamic>? json) {
     return json?.map((item) => CommentModel.fromMap(item as Map<dynamic, dynamic>)).toList() ?? [];
   }

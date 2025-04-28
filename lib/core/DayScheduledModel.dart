@@ -1,5 +1,8 @@
 
 
+import 'package:flutter/cupertino.dart';
+import 'package:valiu_app/core/extensions.dart';
+
 import 'ProgramModel.dart';
 
 class DayScheduledModel {
@@ -42,5 +45,18 @@ class DayScheduledModel {
   String toString() =>
       'DayScheduledModel{date: $date, programs: $programs}';
       // 'DayScheduledModel{number: $number, name: $name, date: $date, monthName: $monthName, programs: $programs}';
+
+
+  factory DayScheduledModel.fromMap(Map<dynamic, dynamic> map) => DayScheduledModel(
+      date: DateTime.parse(map['date'].toString()),
+      monthName: DateTime.parse(map['date'].toString()).formatTo(format: 'MMMM'),
+      name: DateTime.parse(map['date'].toString()).formatTo(format: 'EEE'),
+      number: DateTime.parse(map['date'].toString()).day.toString(),
+      programs: ProgramModel.listFromJson(DateTime.parse(map['date'].toString()), map['program'] as List<dynamic>?),
+  );
+
+  static List<DayScheduledModel> listFromJson(List<dynamic>? json) {
+    return json?.map((item) => DayScheduledModel.fromMap(item as Map<dynamic, dynamic>)).toList() ?? [];
+  }
 
 }

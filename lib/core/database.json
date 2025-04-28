@@ -81,6 +81,77 @@
       "title": "Título de la noticia o evento"
     }
   ],
+  "schedule": [
+    {
+      "date": "2025-03-22T12:00:00Z",
+      "program": [
+        {
+          "time": "7:00 pm",
+          "title": "Program 1",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "7:00 pm",
+          "title": "Program 2",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "7:00 pm",
+          "title": "Program 3",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2025-03-23T12:00:00Z",
+      "program": [
+        {
+          "time": "7:00 pm",
+          "title": "Program 1",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "8:00 pm",
+          "title": "Program 2",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "9:00 pm",
+          "title": "Program 3",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2025-03-24T12:00:00Z",
+      "program": [
+        {
+          "time": "6:00 pm",
+          "title": "Program 1",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "7:00 pm",
+          "title": "Program 2",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        },
+        {
+          "time": "8:00 pm",
+          "title": "Program 3",
+          "link": "https://passionconferences.com/",
+          "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
+        }
+      ]
+    }
+  ],
   "social_networks": [
     {
       "name": "Instagram",
