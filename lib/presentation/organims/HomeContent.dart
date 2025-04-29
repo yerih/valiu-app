@@ -120,8 +120,8 @@ class _HomeContentState extends State<HomeContent> {
                       year: item.date.year.toString(),
                       index: index,
                       onTap: () async {
-                        loadNews();
                         widget.onTapItem?.call(index, item);
+                        loadNews();
                       },
                     );
                   }, childCount: news.length),

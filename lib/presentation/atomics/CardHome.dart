@@ -59,7 +59,7 @@ class _CardHomeState extends State<CardHome>
     return GestureDetector(
       onTapDown: (_) => setState(() => _scale = 0.85),
       onTapUp: _onTapUp,
-      onTap: widget.onTap,
+      onTap: () {Future.delayed(Duration(milliseconds: 200), () => widget.onTap?.call());},
       onTapCancel: () => setState(() => _scale = 1.0),
       child: AnimatedScale(
         scale: _scale,

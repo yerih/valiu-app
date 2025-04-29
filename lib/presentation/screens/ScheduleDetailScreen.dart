@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:valiu_app/core/extensions.dart';
 import 'package:valiu_app/data/datasources/CalendarEventAdder.dart';
 import '../../core/ProgramModel.dart';
+import '../../data/datasources/CalendarEventChecker.dart';
 import '../organims/ShareBottomSheetLauncher.dart';
 import '../styles/StyleText.dart';
 
@@ -19,6 +20,12 @@ class ScheduleDetailScreen extends StatefulWidget {
 class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
   final ScrollController _scrollController = ScrollController();
   bool _isAdded = false;
+
+  @override
+  void initState() {
+    isEventAddedByApp(widget.program.date).then((value) => setState(() => _isAdded = value));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
