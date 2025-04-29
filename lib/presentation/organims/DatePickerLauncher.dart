@@ -5,7 +5,6 @@ Future<DateTime?> launchDatePicker(
     DateTime selectedDate,
     DateTime initDate,
     DateTime lastDate,
-    // void Function(DateTime date)? onDateSelected,
 ) async {
   final DateTime? picked = await showDatePicker(
     context: context,
@@ -20,22 +19,14 @@ Future<DateTime?> launchDatePicker(
       return Theme(
         data: Theme.of(context).copyWith(
           datePickerTheme: DatePickerThemeData(
-            // This hides the divider
             dividerColor: Colors.transparent,
-
-            // Optional: Customize header or background if needed
             backgroundColor: Colors.white,
             headerBackgroundColor: Colors.white,
-            // dayForegroundColor: MaterialStateProperty.all(Colors.black),
           ),
           colorScheme: ColorScheme.light(
             primary: Colors.black,        // selected date circle & header
             onPrimary: Colors.white,      // text on selected circle
             onSurface: Colors.grey.shade500,    // default text color (dates, labels)
-
-            // onSurface: Colors.grey.shade500,    // default text color (dates, labels)
-            // onSurface: Colors.black87,    // default text color (dates, labels)
-
           ),
           textTheme: TextTheme(
             headlineLarge: TextStyle(color: Colors.blue), // Month & year
@@ -43,9 +34,7 @@ Future<DateTime?> launchDatePicker(
             bodySmall: TextStyle(color: Colors.green),     // Dates in grid
           ),
           textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.black, // Cancel/Okay button text
-            ),
+            style: TextButton.styleFrom(foregroundColor: Colors.black),
           ),
         ),
         child: child!,

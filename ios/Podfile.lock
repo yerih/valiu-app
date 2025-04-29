@@ -1,11 +1,7 @@
 PODS:
-  - add_2_calendar (0.0.1):
-    - Flutter
   - cloud_firestore (4.17.5):
     - Firebase/Firestore (= 10.25.0)
     - firebase_core
-    - Flutter
-  - device_calendar (0.0.1):
     - Flutter
   - Firebase/Auth (10.25.0):
     - Firebase/CoreOnly
@@ -146,9 +142,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - add_2_calendar (from `.symlinks/plugins/add_2_calendar/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
-  - device_calendar (from `.symlinks/plugins/device_calendar/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
@@ -188,12 +182,8 @@ SPEC REPOS:
     - RecaptchaInterop
 
 EXTERNAL SOURCES:
-  add_2_calendar:
-    :path: ".symlinks/plugins/add_2_calendar/ios"
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
-  device_calendar:
-    :path: ".symlinks/plugins/device_calendar/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -224,9 +214,7 @@ CHECKOUT OPTIONS:
     :tag: 10.25.0
 
 SPEC CHECKSUMS:
-  add_2_calendar: 5eee66d5a3b99cd5e1487a7e03abd4e3ac4aff11
   cloud_firestore: 003d53b6b8b392600b7769acf9421cc4f23e5911
-  device_calendar: 23b28a5f1ab3bf77e34542fb1167e1b8b29a98f5
   Firebase: 0312a2352584f782ea56f66d91606891d4607f06
   firebase_auth: 5719ddc9f654b813405899480e84971bd8e61235
   firebase_core: a626d00494efa398e7c54f25f1454a64c8abf197

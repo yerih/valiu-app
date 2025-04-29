@@ -23,7 +23,7 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
 
   @override
   void initState() {
-    isEventAddedByApp(widget.program.date).then((value) => setState(() => _isAdded = value));
+    // isEventAddedByApp(widget.program.date).then((value) => setState(() => _isAdded = value));
     super.initState();
   }
 
@@ -101,7 +101,8 @@ class _ScheduleDetailScreenState extends State<ScheduleDetailScreen> {
                           child: OutlinedButton(
                             onPressed: () {
                               setState(() {_isAdded = !_isAdded;});
-                              addEventToCalendar(program);
+                              CalendarHelper.addEventToCalendar(program);
+                              // addEventToCalendar(program);
                             },
                             style: ButtonStyle(
                               backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {

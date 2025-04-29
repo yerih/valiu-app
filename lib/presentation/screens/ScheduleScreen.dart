@@ -81,8 +81,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 final selectedDate = await launchDatePicker(
                     context, days[selectedIndex.value].date, days.first.date, days.last.date);
                 if (selectedDate != null) {
-                  selectedIndex.value = days.indexWhere((element) => element.date == selectedDate);
-                  debugPrint('selectedIndx: ${selectedIndex.value}');
+                  selectedIndex.value = days.isDateInList(selectedDate);
                   _scrollToSection(globalKeys[selectedIndex.value]);
                 }
               }
@@ -123,3 +122,18 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     );
   }
 }
+
+
+
+extension on List<DayScheduledModel> {
+  int isDateInList(DateTime day) {
+    final selectedDateNormalized = DateTime(day.year, day.month, day.day);
+    return indexWhere((dayScheduled) =>
+    dayScheduled.date.year == selectedDateNormalized.year &&
+        dayScheduled.date.month == selectedDateNormalized.month &&
+        dayScheduled.date.day == selectedDateNormalized.day);
+  }
+}
+
+
+

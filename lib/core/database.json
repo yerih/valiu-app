@@ -92,13 +92,13 @@
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         },
         {
-          "time": "7:00 pm",
+          "time": "8:00 pm",
           "title": "Program 2",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         },
         {
-          "time": "7:00 pm",
+          "time": "9:00 pm",
           "title": "Program 3",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
@@ -110,19 +110,19 @@
       "program": [
         {
           "time": "7:00 pm",
-          "title": "Program 1",
+          "title": "Program 4",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         },
         {
           "time": "8:00 pm",
-          "title": "Program 2",
+          "title": "Program 5",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         },
         {
           "time": "9:00 pm",
-          "title": "Program 3",
+          "title": "Program 6",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         }
@@ -145,7 +145,7 @@
         },
         {
           "time": "8:00 pm",
-          "title": "Program 3",
+          "title": "Program 7",
           "link": "https://passionconferences.com/",
           "image": "https://pe-assets.nyc3.cdn.digitaloceanspaces.com/images/f83c6298-6662-43cf-b2cb-f1a1a040cd32.552722.jpg"
         }
